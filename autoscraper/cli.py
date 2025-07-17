@@ -7,6 +7,7 @@ from autoscraper.core.eda import run_eda
 from autoscraper.utils.logger import info, success, error
 from autoscraper.core.ai_insights import run_ai_insights
 from autoscraper.core.gpt_cluster_describer import describe_clusters
+from autoscraper.core.enricher import semantic_enrich
 
 app = typer.Typer()
 
@@ -112,5 +113,15 @@ def gpt_describe_clusters(
     """
     describe_clusters(input_csv, output_json, top_n)
     success("Cluster descriptions generated successfully!")
+
+@app.command() 
+def enrich(
+    input_csv: str = typer.Option("output_cleaned.csv", help="Input CSV for enrichment"),
+    output_csv: str = typer.Option("output_enriched.csv", help="Where to save enriched CSV"),
+    sim_threshold: float = typer.Option(0.90, help="Similarity threshold for merging duplicates")
+):
+    """Phase 6: Semantic-level enrichment & deduplication."""
+    semantic_enrich(input_csv, output_csv, sim_threshold)
+
 if __name__ == "__main__":
     app()
