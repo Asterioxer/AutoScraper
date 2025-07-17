@@ -1,0 +1,8 @@
+{
+  "url": "https://quotes.toscrape.com",
+  "selectors": {
+    "quote": ".text",
+    "author": ".author"
+  },
+  "pagination": ".next > a"
+}
