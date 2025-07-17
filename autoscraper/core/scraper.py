@@ -6,10 +6,18 @@ from autoscraper.utils.logger import info, error
 
 def fetch_page(url, retries=3, backoff=1, timeout=10):
     """Fetch a page with retries and exponential backoff."""
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                      "(KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+        "Accept-Language": "en-US,en;q=0.9",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Referer": "https://google.com/",
+        "Connection": "keep-alive",
+    }
     for attempt in range(1, retries + 1):
         try:
             info(f"Fetching {url} (attempt {attempt})")
-            response = requests.get(url, timeout=timeout)
+            response = requests.get(url, headers=headers, timeout=timeout)
             response.raise_for_status()
             return response.text
         except requests.RequestException as e:
@@ -20,6 +28,8 @@ def fetch_page(url, retries=3, backoff=1, timeout=10):
             wait = backoff * (2 ** (attempt - 1))
             info(f"Retrying in {wait} seconds...")
             time.sleep(wait)
+
+
 
 def scrape(url: str, selector: str, retries=3, backoff=1, timeout=10):
     """Scrape elements matching selector from a single page with retry."""
@@ -47,6 +57,7 @@ def scrape_with_pagination(base_url: str, selectors: dict, pagination_selector: 
 
         for key, sel in selectors.items():
             elements = soup.select(sel)
+            info(f"Found {len(elements)} elements for selector '{sel}' on page {pages_scraped + 1}")
             all_data[key].extend([el.get_text(strip=True) for el in elements])
 
         pages_scraped += 1
@@ -55,6 +66,7 @@ def scrape_with_pagination(base_url: str, selectors: dict, pagination_selector: 
             next_link = soup.select_one(pagination_selector)
             if next_link and next_link.get('href'):
                 page_url = urljoin(page_url, next_link['href'])
+                info(f"Next page URL resolved to: {page_url}")
             else:
                 page_url = None
         else:
