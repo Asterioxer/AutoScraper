@@ -1,0 +1,935 @@
+contest_id,task_id,name,url,statement,cluster,teaching_version
+DEGwer2023,1202Contest_a,A. DEGwer's Doctoral Dissertation,https://atcoder.jp/contests/DEGwer2023/tasks/1202Contest_a,"
+<p>Score : <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>100</mn></mrow><annotation encoding=""application/x-tex"">100</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">1</span><span class=""mord"">0</span><span class=""mord"">0</span></span></span></span></span></var> points</p>
+
+<div class=""part"">
+<section>
+<h3>Problem Statement</h3><p>DEGwer's doctoral dissertation consists of <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>N</mi></mrow><annotation encoding=""application/x-tex"">N</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.10903em;"">N</span></span></span></span></span></var> pages. Currently, there are <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>K</mi></mrow><annotation encoding=""application/x-tex"">K</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.07153em;"">K</span></span></span></span></span></var> typos in this doctoral dissertation, and the <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>i</mi></mrow><annotation encoding=""application/x-tex"">i</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.65952em; vertical-align: 0em;""></span><span class=""mord mathnormal"">i</span></span></span></span></span></var>-th typo <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mo stretchy=""false"">(</mo><mi>i</mi><mo>=</mo><mn>1</mn><mo separator=""true"">,</mo><mo>…</mo><mo separator=""true"">,</mo><mi>K</mi><mo stretchy=""false"">)</mo></mrow><annotation encoding=""application/x-tex"">(i = 1, \ldots, K)</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mopen"">(</span><span class=""mord mathnormal"">i</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mord"">1</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""minner"">…</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.07153em;"">K</span><span class=""mclose"">)</span></span></span></span></span></var> is on page <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><msub><mi>A</mi><mi>i</mi></msub></mrow><annotation encoding=""application/x-tex"">A_i</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.83333em; vertical-align: -0.15em;""></span><span class=""mord""><span class=""mord mathnormal"">A</span><span class=""msupsub""><span class=""vlist-t vlist-t2""><span class=""vlist-r""><span class=""vlist"" style=""height: 0.311664em;""><span class="""" style=""top: -2.55em; margin-left: 0em; margin-right: 0.05em;""><span class=""pstrut"" style=""height: 2.7em;""></span><span class=""sizing reset-size6 size3 mtight""><span class=""mord mathnormal mtight"">i</span></span></span></span><span class=""vlist-s"">​</span></span><span class=""vlist-r""><span class=""vlist"" style=""height: 0.15em;""><span class=""""></span></span></span></span></span></span></span></span></span></span></var>.</p>
+<p>To submit the doctoral dissertation, it is necessary to correct the typos so that no consecutive <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>T</mi></mrow><annotation encoding=""application/x-tex"">T</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.13889em;"">T</span></span></span></span></span></var> pages contain multiple typos.
+Please help busy DEGwer, who is preparing this contest, by determining the minimum number of typos that need to be corrected in order to submit the doctoral dissertation.</p>
+</section>
+</div>
+
+<div class=""part"">
+<section>
+<h3>Constraints</h3><ul>
+<li><var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>1</mn><mo>≤</mo><mi>N</mi><mo>≤</mo><mn>2</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mn>5</mn></msup></mrow><annotation encoding=""application/x-tex"">1 \leq N \leq 2 \times 10^5</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.78041em; vertical-align: -0.13597em;""></span><span class=""mord"">1</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.8193em; vertical-align: -0.13597em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.10903em;"">N</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.72777em; vertical-align: -0.08333em;""></span><span class=""mord"">2</span><span class=""mspace"" style=""margin-right: 0.222222em;""></span><span class=""mbin"">×</span><span class=""mspace"" style=""margin-right: 0.222222em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.814108em; vertical-align: 0em;""></span><span class=""mord"">1</span><span class=""mord""><span class=""mord"">0</span><span class=""msupsub""><span class=""vlist-t""><span class=""vlist-r""><span class=""vlist"" style=""height: 0.814108em;""><span class="""" style=""top: -3.063em; margin-right: 0.05em;""><span class=""pstrut"" style=""height: 2.7em;""></span><span class=""sizing reset-size6 size3 mtight""><span class=""mord mtight"">5</span></span></span></span></span></span></span></span></span></span></span></span></var></li>
+<li><var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>1</mn><mo>≤</mo><mi>K</mi><mo>≤</mo><mn>2</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mn>5</mn></msup></mrow><annotation encoding=""application/x-tex"">1 \leq K \leq 2 \times 10^5</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.78041em; vertical-align: -0.13597em;""></span><span class=""mord"">1</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.8193em; vertical-align: -0.13597em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.07153em;"">K</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.72777em; vertical-align: -0.08333em;""></span><span class=""mord"">2</span><span class=""mspace"" style=""margin-right: 0.222222em;""></span><span class=""mbin"">×</span><span class=""mspace"" style=""margin-right: 0.222222em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.814108em; vertical-align: 0em;""></span><span class=""mord"">1</span><span class=""mord""><span class=""mord"">0</span><span class=""msupsub""><span class=""vlist-t""><span class=""vlist-r""><span class=""vlist"" style=""height: 0.814108em;""><span class="""" style=""top: -3.063em; margin-right: 0.05em;""><span class=""pstrut"" style=""height: 2.7em;""></span><span class=""sizing reset-size6 size3 mtight""><span class=""mord mtight"">5</span></span></span></span></span></span></span></span></span></span></span></span></var></li>
+<li><var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>1</mn><mo>≤</mo><mi>T</mi><mo>≤</mo><mi>N</mi></mrow><annotation encoding=""application/x-tex"">1 \leq T \leq N</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.78041em; vertical-align: -0.13597em;""></span><span class=""mord"">1</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.8193em; vertical-align: -0.13597em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.13889em;"">T</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.10903em;"">N</span></span></span></span></span></var></li>
+<li><var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>1</mn><mo>≤</mo><msub><mi>A</mi><mi>i</mi></msub><mo>≤</mo><mi>N</mi><mtext>&nbsp;&nbsp;</mtext><mo stretchy=""false"">(</mo><mn>1</mn><mo>≤</mo><mi>i</mi><mo>≤</mo><mi>K</mi><mo stretchy=""false"">)</mo></mrow><annotation encoding=""application/x-tex"">1 \leq A_i \leq N \ \ (1 \leq i \leq K)</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.78041em; vertical-align: -0.13597em;""></span><span class=""mord"">1</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.83333em; vertical-align: -0.15em;""></span><span class=""mord""><span class=""mord mathnormal"">A</span><span class=""msupsub""><span class=""vlist-t vlist-t2""><span class=""vlist-r""><span class=""vlist"" style=""height: 0.311664em;""><span class="""" style=""top: -2.55em; margin-left: 0em; margin-right: 0.05em;""><span class=""pstrut"" style=""height: 2.7em;""></span><span class=""sizing reset-size6 size3 mtight""><span class=""mord mathnormal mtight"">i</span></span></span></span><span class=""vlist-s"">​</span></span><span class=""vlist-r""><span class=""vlist"" style=""height: 0.15em;""><span class=""""></span></span></span></span></span></span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.10903em;"">N</span><span class=""mspace"">&nbsp;</span><span class=""mspace"">&nbsp;</span><span class=""mopen"">(</span><span class=""mord"">1</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.79549em; vertical-align: -0.13597em;""></span><span class=""mord mathnormal"">i</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.07153em;"">K</span><span class=""mclose"">)</span></span></span></span></span></var></li>
+</ul>
+</section>
+</div>
+
+<hr>
+<div class=""io-style"">
+<div class=""part"">
+<section>
+<h3>Input</h3><p>The input is given from Standard Input in the following format:</p>
+<pre><var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>N</mi><mtext>&nbsp;</mtext><mi>K</mi><mtext>&nbsp;</mtext><mi>T</mi></mrow><annotation encoding=""application/x-tex"">N \ K \ T</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.10903em;"">N</span><span class=""mspace"">&nbsp;</span><span class=""mord mathnormal"" style=""margin-right: 0.07153em;"">K</span><span class=""mspace"">&nbsp;</span><span class=""mord mathnormal"" style=""margin-right: 0.13889em;"">T</span></span></span></span></span></var> 
+<var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><msub><mi>A</mi><mn>1</mn></msub><mtext>&nbsp;</mtext><msub><mi>A</mi><mn>2</mn></msub><mtext>&nbsp;</mtext><mo>…</mo><mtext>&nbsp;</mtext><msub><mi>A</mi><mi>K</mi></msub></mrow><annotation encoding=""application/x-tex"">A_1 \ A_2 \ \dots \ A_K</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.83333em; vertical-align: -0.15em;""></span><span class=""mord""><span class=""mord mathnormal"">A</span><span class=""msupsub""><span class=""vlist-t vlist-t2""><span class=""vlist-r""><span class=""vlist"" style=""height: 0.301108em;""><span class="""" style=""top: -2.55em; margin-left: 0em; margin-right: 0.05em;""><span class=""pstrut"" style=""height: 2.7em;""></span><span class=""sizing reset-size6 size3 mtight""><span class=""mord mtight"">1</span></span></span></span><span class=""vlist-s"">​</span></span><span class=""vlist-r""><span class=""vlist"" style=""height: 0.15em;""><span class=""""></span></span></span></span></span></span><span class=""mspace"">&nbsp;</span><span class=""mord""><span class=""mord mathnormal"">A</span><span class=""msupsub""><span class=""vlist-t vlist-t2""><span class=""vlist-r""><span class=""vlist"" style=""height: 0.301108em;""><span class="""" style=""top: -2.55em; margin-left: 0em; margin-right: 0.05em;""><span class=""pstrut"" style=""height: 2.7em;""></span><span class=""sizing reset-size6 size3 mtight""><span class=""mord mtight"">2</span></span></span></span><span class=""vlist-s"">​</span></span><span class=""vlist-r""><span class=""vlist"" style=""height: 0.15em;""><span class=""""></span></span></span></span></span></span><span class=""mspace"">&nbsp;</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""minner"">…</span><span class=""mspace"">&nbsp;</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord""><span class=""mord mathnormal"">A</span><span class=""msupsub""><span class=""vlist-t vlist-t2""><span class=""vlist-r""><span class=""vlist"" style=""height: 0.328331em;""><span class="""" style=""top: -2.55em; margin-left: 0em; margin-right: 0.05em;""><span class=""pstrut"" style=""height: 2.7em;""></span><span class=""sizing reset-size6 size3 mtight""><span class=""mord mathnormal mtight"" style=""margin-right: 0.07153em;"">K</span></span></span></span><span class=""vlist-s"">​</span></span><span class=""vlist-r""><span class=""vlist"" style=""height: 0.15em;""><span class=""""></span></span></span></span></span></span></span></span></span></span></var>
+</pre>
+</section>
+</div>
+
+<div class=""part"">
+<section>
+<h3>Output</h3><p>Output the minimum number of typos that need to be corrected to submit the doctoral dissertation.</p>
+</section>
+</div>
+</div>
+
+<hr>
+<div class=""part"">
+<section>
+<h3>Sample Input 1<span class=""btn btn-default btn-sm btn-copy ml-1"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample6"" data-original-title=""Copied!"">Copy</span></h3><div class=""div-btn-copy""><span class=""btn-copy btn-pre"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample6"" data-original-title=""Copied!"">Copy</span></div><pre id=""pre-sample6"">5 4 3
+1 2 4 5
+</pre>
+</section>
+</div>
+
+<div class=""part"">
+<section>
+<h3>Sample Output 1<span class=""btn btn-default btn-sm btn-copy ml-1"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample7"" data-original-title=""Copied!"">Copy</span></h3><div class=""div-btn-copy""><span class=""btn-copy btn-pre"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample7"" data-original-title=""Copied!"">Copy</span></div><pre id=""pre-sample7"">2
+</pre>
+<p>DEGwer's doctoral dissertation consists of <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>5</mn></mrow><annotation encoding=""application/x-tex"">5</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">5</span></span></span></span></span></var> pages, with one typo each on the <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>1</mn></mrow><annotation encoding=""application/x-tex"">1</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">1</span></span></span></span></span></var>st, <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>2</mn></mrow><annotation encoding=""application/x-tex"">2</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">2</span></span></span></span></span></var>nd, <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>4</mn></mrow><annotation encoding=""application/x-tex"">4</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">4</span></span></span></span></span></var>th, and <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>5</mn></mrow><annotation encoding=""application/x-tex"">5</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">5</span></span></span></span></span></var>th pages.</p>
+<p>For example, if the typos on the <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>1</mn></mrow><annotation encoding=""application/x-tex"">1</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">1</span></span></span></span></span></var>st and <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>4</mn></mrow><annotation encoding=""application/x-tex"">4</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">4</span></span></span></span></span></var>th pages are corrected, then no consecutive <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>3</mn></mrow><annotation encoding=""application/x-tex"">3</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">3</span></span></span></span></span></var> pages will have multiple typos.
+On the other hand, it can also be confirmed that it is impossible to meet this condition by correcting only one typo.
+Therefore, output <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>2</mn></mrow><annotation encoding=""application/x-tex"">2</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">2</span></span></span></span></span></var> as the minimum number of typos to be corrected.</p>
+</section>
+</div>
+
+<hr>
+<div class=""part"">
+<section>
+<h3>Sample Input 2<span class=""btn btn-default btn-sm btn-copy ml-1"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample8"" data-original-title=""Copied!"">Copy</span></h3><div class=""div-btn-copy""><span class=""btn-copy btn-pre"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample8"" data-original-title=""Copied!"">Copy</span></div><pre id=""pre-sample8"">4 8 2
+1 1 1 1 1 4 2 2
+</pre>
+</section>
+</div>
+
+<div class=""part"">
+<section>
+<h3>Sample Output 2<span class=""btn btn-default btn-sm btn-copy ml-1"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample9"" data-original-title=""Copied!"">Copy</span></h3><div class=""div-btn-copy""><span class=""btn-copy btn-pre"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample9"" data-original-title=""Copied!"">Copy</span></div><pre id=""pre-sample9"">6
+</pre>
+<p>There may also be multiple typos on a single page.</p>
+</section>
+</div>
+
+<hr>
+<div class=""part"">
+<section>
+<h3>Sample Input 3<span class=""btn btn-default btn-sm btn-copy ml-1"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample10"" data-original-title=""Copied!"">Copy</span></h3><div class=""div-btn-copy""><span class=""btn-copy btn-pre"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample10"" data-original-title=""Copied!"">Copy</span></div><pre id=""pre-sample10"">5 2 3
+4 1
+</pre>
+</section>
+</div>
+
+<div class=""part"">
+<section>
+<h3>Sample Output 3<span class=""btn btn-default btn-sm btn-copy ml-1"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample11"" data-original-title=""Copied!"">Copy</span></h3><div class=""div-btn-copy""><span class=""btn-copy btn-pre"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample11"" data-original-title=""Copied!"">Copy</span></div><pre id=""pre-sample11"">0
+</pre>
+<p>There may be no need to correct any typos.</p></section>
+</div>
+",2,"## Problem Statement:
+DEGwer has a doctoral dissertation with $N$ pages and $K$ typos. The $i$-th typo ($1 \leq i \leq K$) is on page $A_i$. To submit the dissertation, no consecutive $T$ pages can have multiple typos. Your task is to help DEGwer determine the minimum number of typos that need to be corrected.
+
+## Steps to Solve:
+1. Take input for $N$, $K$, $T$, and the $K$ page numbers with typos, $A_i$.
+2. Initialize a variable, $count$, to store the minimum number of typos to correct.
+3. Iterate through the given page numbers, $A_i$.
+4. For each page number, $A_i$, check if there is another typo within the next $T-1$ pages.
+5. If there is, increment $count$.
+6. Continue this process for all $K$ page numbers.
+7. Output the value of $count$ as the minimum number of typos to correct.
+
+## Examples:
+### Example 1:
+#### Input:
+$N = 5, K = 4, T = 3$
+
+$A_1 = 1, A_2 = 2, A_3 = 4, A_4 = 5$
+
+#### Explanation:
+The dissertation has 5 pages, with typos on pages 1, 2, 4, and 5. To ensure no consecutive 3 pages have multiple typos, we must correct at least 2 typos. For instance, correcting the typos on pages 1 and 4 would achieve this.
+
+#### Output:
+2
+
+### Example 2:
+#### Input:
+$N = 4, K = 8, T = 2$
+
+$A_1 = 1, A_2 = 1, A_3 = 1, A_4 = 1, A_5 = 4, A_6 = 2, A_7 = 2, A_8 = 2$
+
+#### Explanation:
+There are 8 typos across 4 pages. To ensure no consecutive 2 pages have multiple typos, we must correct at least 6 of them.
+
+#### Output:
+6
+
+### Example 3:
+#### Input:
+$N = 5, K = 2, T = 3$
+
+$A_1 = 4, A_2 = 1$
+
+#### Explanation:
+In this case, there is no need to correct any typos as no consecutive 3 pages have multiple typos.
+
+#### Output:
+0
+
+I hope this breakdown helps clarify the problem statement and provides a good starting point for solving it. Let me know if you would like further clarification or assistance!"
+DEGwer2023,1202Contest_b,B. vs. DEGwer,https://atcoder.jp/contests/DEGwer2023/tasks/1202Contest_b,"
+<p>Score : <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>100</mn></mrow><annotation encoding=""application/x-tex"">100</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">1</span><span class=""mord"">0</span><span class=""mord"">0</span></span></span></span></span></var> points</p>
+
+<div class=""part"">
+<section>
+<h3>Problem Statement</h3><p><font color=""red""><b>This is an interactive problem. Because the judge program (interactor) requires around 1 second in the worst case, the time limit is set to be longer.</b></font></p>
+<p>You have eventually reached the castle of Great Satan DEGwer after 10-year journey.
+The entrance of the castle is a dungeon, which cannot avoid for arriving at DEGwer.</p>
+<p>The dungeon is of form a grid with <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>H</mi></mrow><annotation encoding=""application/x-tex"">H</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.08125em;"">H</span></span></span></span></span></var> rows and <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>W</mi></mrow><annotation encoding=""application/x-tex"">W</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.13889em;"">W</span></span></span></span></span></var> columns.
+Each of <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>H</mi><mo>×</mo><mi>W</mi></mrow><annotation encoding=""application/x-tex"">H \times W</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.76666em; vertical-align: -0.08333em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.08125em;"">H</span><span class=""mspace"" style=""margin-right: 0.222222em;""></span><span class=""mbin"">×</span><span class=""mspace"" style=""margin-right: 0.222222em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.13889em;"">W</span></span></span></span></span></var> squares is a room, and there is a <b>door</b> between any pair of adjacent rooms.
+In addition, there is an <b>entrance door</b> on the left side of each room located in the left-most column, and there is an <b>exit door</b> on the right side of each room located in the right-most column.</p>
+<p>Now, all the door are <b>unfixed</b>.
+You want to let the dungeon such that some open exit door can be reached from some open entrance door by repeatedly passing through open doors, and DEGwer wants to prevent your objective.
+For their own objectives, you and DEGwer alternately use the following magics.</p>
+<ul>
+<li>Your magic: Choose any unfixed door, fix it as open (passable).</li>
+<li>DEGwer's magic: Choose any unfixed door, fix it as closed (impassable).</li>
+</ul>
+<p>You are given the size <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mo stretchy=""false"">(</mo><mi>H</mi><mo separator=""true"">,</mo><mi>W</mi><mo stretchy=""false"">)</mo></mrow><annotation encoding=""application/x-tex"">(H, W)</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mopen"">(</span><span class=""mord mathnormal"" style=""margin-right: 0.08125em;"">H</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.13889em;"">W</span><span class=""mclose"">)</span></span></span></span></span></var> of the dungeon and who uses the magic first.
+Determine whether your objective is achievable or not when you and DEGwer do their best.
+In addition, if your objective is achievable, indicate <font color=""red""><b>interactively</b></font> one possible way (your magics) to do so.</p>
+</section>
+</div>
+
+<div class=""part"">
+<section>
+<h3>Constraints</h3><ul>
+<li><var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>1</mn><mo>≤</mo><mi>H</mi><mo>≤</mo><mn>20</mn></mrow><annotation encoding=""application/x-tex"">1 \leq H \leq 20</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.78041em; vertical-align: -0.13597em;""></span><span class=""mord"">1</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.8193em; vertical-align: -0.13597em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.08125em;"">H</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">2</span><span class=""mord"">0</span></span></span></span></span></var></li>
+<li><var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>1</mn><mo>≤</mo><mi>W</mi><mo>≤</mo><mn>20</mn></mrow><annotation encoding=""application/x-tex"">1 \leq W \leq 20</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.78041em; vertical-align: -0.13597em;""></span><span class=""mord"">1</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.8193em; vertical-align: -0.13597em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.13889em;"">W</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">2</span><span class=""mord"">0</span></span></span></span></span></var></li>
+<li><var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mtext>move</mtext></mrow><annotation encoding=""application/x-tex"">\textrm{move}</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.43056em; vertical-align: 0em;""></span><span class=""mord text""><span class=""mord textrm"">move</span></span></span></span></span></span></var> is either <code>First</code> or <code>Second</code>, where <code>First</code> means that you use the magic first, and <code>Second</code> means that DEGwer uses the magic first.</li>
+</ul>
+</section>
+</div>
+
+<hr>
+<div class=""io-style"">
+<div class=""part"">
+<section>
+<h3>Input</h3><p>The input is given from Standard Input in the following format:</p>
+<pre><var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>H</mi></mrow><annotation encoding=""application/x-tex"">H</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.08125em;"">H</span></span></span></span></span></var> <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>W</mi></mrow><annotation encoding=""application/x-tex"">W</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.13889em;"">W</span></span></span></span></span></var> <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mtext>move</mtext></mrow><annotation encoding=""application/x-tex"">\textrm{move}</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.43056em; vertical-align: 0em;""></span><span class=""mord text""><span class=""mord textrm"">move</span></span></span></span></span></span></var>
+</pre>
+</section>
+</div>
+
+<div class=""part"">
+<section>
+<h3>Output</h3><p>Print <code>Yes</code> if your objective is achievable and <code>No</code> otherwise, under the assumption that you and DEGwer do their best.</p>
+<p>In addition, if the answer is <code>Yes</code>, print <font color=""red""><b>interactively</b></font> in the following format for which doors you use magic. (See also Sample 2.)</p>
+<pre><var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>t</mi></mrow><annotation encoding=""application/x-tex"">t</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.61508em; vertical-align: 0em;""></span><span class=""mord mathnormal"">t</span></span></span></span></span></var> <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>i</mi></mrow><annotation encoding=""application/x-tex"">i</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.65952em; vertical-align: 0em;""></span><span class=""mord mathnormal"">i</span></span></span></span></span></var> <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>j</mi></mrow><annotation encoding=""application/x-tex"">j</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.85396em; vertical-align: -0.19444em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.05724em;"">j</span></span></span></span></span></var>
+</pre>
+<ul>
+<li><var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>t</mi></mrow><annotation encoding=""application/x-tex"">t</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.61508em; vertical-align: 0em;""></span><span class=""mord mathnormal"">t</span></span></span></span></span></var> is either <code>|</code> or <code>-</code>.</li>
+<li><var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>i</mi></mrow><annotation encoding=""application/x-tex"">i</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.65952em; vertical-align: 0em;""></span><span class=""mord mathnormal"">i</span></span></span></span></span></var> and <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>j</mi></mrow><annotation encoding=""application/x-tex"">j</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.85396em; vertical-align: -0.19444em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.05724em;"">j</span></span></span></span></span></var> are integers.</li>
+<li>If <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>t</mi><mo>=</mo><mrow></mrow></mrow><annotation encoding=""application/x-tex"">t = {}</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.61508em; vertical-align: 0em;""></span><span class=""mord mathnormal"">t</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0em; vertical-align: 0em;""></span><span class=""mord""></span></span></span></span></span></var><code>|</code>, then <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>1</mn><mo>≤</mo><mi>i</mi><mo>≤</mo><mi>H</mi></mrow><annotation encoding=""application/x-tex"">1 \leq i \leq H</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.78041em; vertical-align: -0.13597em;""></span><span class=""mord"">1</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.79549em; vertical-align: -0.13597em;""></span><span class=""mord mathnormal"">i</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.08125em;"">H</span></span></span></span></span></var> and <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>1</mn><mo>≤</mo><mi>j</mi><mo>≤</mo><mi>W</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding=""application/x-tex"">1 \leq j \leq W + 1</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.78041em; vertical-align: -0.13597em;""></span><span class=""mord"">1</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.85396em; vertical-align: -0.19444em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.05724em;"">j</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.76666em; vertical-align: -0.08333em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.13889em;"">W</span><span class=""mspace"" style=""margin-right: 0.222222em;""></span><span class=""mbin"">+</span><span class=""mspace"" style=""margin-right: 0.222222em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">1</span></span></span></span></span></var>, which represents that the door chosen as a target of the magic is the <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>i</mi></mrow><annotation encoding=""application/x-tex"">i</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.65952em; vertical-align: 0em;""></span><span class=""mord mathnormal"">i</span></span></span></span></span></var>-th from the top and the <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>j</mi></mrow><annotation encoding=""application/x-tex"">j</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.85396em; vertical-align: -0.19444em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.05724em;"">j</span></span></span></span></span></var>-th from the left among those which are passed horizontally (i.e., the doors between two horizontally adjacent rooms and all the entrance and exit doors).</li>
+<li>If <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>t</mi><mo>=</mo><mrow></mrow></mrow><annotation encoding=""application/x-tex"">t = {}</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.61508em; vertical-align: 0em;""></span><span class=""mord mathnormal"">t</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0em; vertical-align: 0em;""></span><span class=""mord""></span></span></span></span></span></var><code>-</code>, then <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>1</mn><mo>≤</mo><mi>i</mi><mo>≤</mo><mi>H</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding=""application/x-tex"">1 \leq i \leq H - 1</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.78041em; vertical-align: -0.13597em;""></span><span class=""mord"">1</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.79549em; vertical-align: -0.13597em;""></span><span class=""mord mathnormal"">i</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.76666em; vertical-align: -0.08333em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.08125em;"">H</span><span class=""mspace"" style=""margin-right: 0.222222em;""></span><span class=""mbin"">−</span><span class=""mspace"" style=""margin-right: 0.222222em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">1</span></span></span></span></span></var> and <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>1</mn><mo>≤</mo><mi>j</mi><mo>≤</mo><mi>W</mi></mrow><annotation encoding=""application/x-tex"">1 \leq j \leq W</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.78041em; vertical-align: -0.13597em;""></span><span class=""mord"">1</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.85396em; vertical-align: -0.19444em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.05724em;"">j</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.13889em;"">W</span></span></span></span></span></var>, which represents that the door chosen as a target of the magic is the <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>i</mi></mrow><annotation encoding=""application/x-tex"">i</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.65952em; vertical-align: 0em;""></span><span class=""mord mathnormal"">i</span></span></span></span></span></var>-th from the top and the <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>j</mi></mrow><annotation encoding=""application/x-tex"">j</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.85396em; vertical-align: -0.19444em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.05724em;"">j</span></span></span></span></span></var>-th from the left among those which are passed vertically (i.e., the doors between two vertically adjacent rooms).</li>
+</ul>
+<p>Against your output, an input in the same format will be returned.
+Note that if <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mtext>move</mtext><mo>=</mo><mrow></mrow></mrow><annotation encoding=""application/x-tex"">\textrm{move} = {}</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.43056em; vertical-align: 0em;""></span><span class=""mord text""><span class=""mord textrm"">move</span></span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0em; vertical-align: 0em;""></span><span class=""mord""></span></span></span></span></span></var><code>First</code>, then you should print your output followed by printing <code>Yes</code>, and if <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mtext>move</mtext><mo>=</mo><mrow></mrow></mrow><annotation encoding=""application/x-tex"">\textrm{move} = {}</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.43056em; vertical-align: 0em;""></span><span class=""mord text""><span class=""mord textrm"">move</span></span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0em; vertical-align: 0em;""></span><span class=""mord""></span></span></span></span></span></var><code>Second</code>, then you should receive an input just after printing <code>Yes</code>.
+In either case, <font color=""red""><b>each time you print something, end it with a newline and flush Standard Output</b></font>.</p>
+<ul>
+<li><var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>t</mi></mrow><annotation encoding=""application/x-tex"">t</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.61508em; vertical-align: 0em;""></span><span class=""mord mathnormal"">t</span></span></span></span></span></var> is one of <code>|</code>, <code>-</code>, <code>a</code>, and <code>w</code>.</li>
+<li>If <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>t</mi></mrow><annotation encoding=""application/x-tex"">t</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.61508em; vertical-align: 0em;""></span><span class=""mord mathnormal"">t</span></span></span></span></span></var> is either <code>|</code> or <code>-</code>, then it represents the door chosen by DEGwer in the same manner.</li>
+<li>If <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>t</mi><mo>=</mo><mrow></mrow></mrow><annotation encoding=""application/x-tex"">t = {}</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.61508em; vertical-align: 0em;""></span><span class=""mord mathnormal"">t</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0em; vertical-align: 0em;""></span><span class=""mord""></span></span></span></span></span></var><code>a</code>, then <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>i</mi><mo>=</mo><mi>j</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding=""application/x-tex"">i = j = 0</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.65952em; vertical-align: 0em;""></span><span class=""mord mathnormal"">i</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.85396em; vertical-align: -0.19444em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.05724em;"">j</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">0</span></span></span></span></span></var>, and it means that your interactive answer has been confirmed as a correct answer.</li>
+<li>If <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>t</mi><mo>=</mo><mrow></mrow></mrow><annotation encoding=""application/x-tex"">t = {}</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.61508em; vertical-align: 0em;""></span><span class=""mord mathnormal"">t</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0em; vertical-align: 0em;""></span><span class=""mord""></span></span></span></span></span></var><code>w</code>, then <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>i</mi><mo>=</mo><mi>j</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding=""application/x-tex"">i = j = 0</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.65952em; vertical-align: 0em;""></span><span class=""mord mathnormal"">i</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.85396em; vertical-align: -0.19444em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.05724em;"">j</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">0</span></span></span></span></span></var>, and it means that your interactive answer has been confirmed as a wrong answer.</li>
+<li>If you receive an input with <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>t</mi><mo>=</mo><mrow></mrow></mrow><annotation encoding=""application/x-tex"">t = {}</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.61508em; vertical-align: 0em;""></span><span class=""mord mathnormal"">t</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0em; vertical-align: 0em;""></span><span class=""mord""></span></span></span></span></span></var><code>a</code> or <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>t</mi><mo>=</mo><mrow></mrow></mrow><annotation encoding=""application/x-tex"">t = {}</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.61508em; vertical-align: 0em;""></span><span class=""mord mathnormal"">t</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0em; vertical-align: 0em;""></span><span class=""mord""></span></span></span></span></span></var><code>w</code>, your program must halt immediately.</li>
+</ul>
+</section>
+</div>
+</div>
+
+<hr>
+<div class=""part"">
+<section>
+<h3>Sample Input 1<span class=""btn btn-default btn-sm btn-copy ml-1"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample6"" data-original-title=""Copied!"">Copy</span></h3><div class=""div-btn-copy""><span class=""btn-copy btn-pre"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample6"" data-original-title=""Copied!"">Copy</span></div><pre id=""pre-sample6"">1 1 First
+</pre>
+</section>
+</div>
+
+<div class=""part"">
+<section>
+<h3>Sample Output 1<span class=""btn btn-default btn-sm btn-copy ml-1"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample7"" data-original-title=""Copied!"">Copy</span></h3><div class=""div-btn-copy""><span class=""btn-copy btn-pre"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample7"" data-original-title=""Copied!"">Copy</span></div><pre id=""pre-sample7"">No
+</pre>
+<p>In this case, the dungeon consists of only one room, whose left side has a unique entrance door and right side has a unique exit door.
+For your objective, you have to fix both doors as open, but it cannot be done even if you use the magic first.
+Thus, your objective is not achievable.</p>
+</section>
+</div>
+
+<hr>
+<div class=""part"">
+<section>
+<h3>Sample Input 2<span class=""btn btn-default btn-sm btn-copy ml-1"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample8"" data-original-title=""Copied!"">Copy</span></h3><div class=""div-btn-copy""><span class=""btn-copy btn-pre"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample8"" data-original-title=""Copied!"">Copy</span></div><pre id=""pre-sample8"">2 1 First
+</pre>
+</section>
+</div>
+
+<div class=""part"">
+<section>
+<h3>Sample Output 2<span class=""btn btn-default btn-sm btn-copy ml-1"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample9"" data-original-title=""Copied!"">Copy</span></h3><div class=""div-btn-copy""><span class=""btn-copy btn-pre"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample9"" data-original-title=""Copied!"">Copy</span></div><pre id=""pre-sample9"">Yes
+...
+</pre>
+<p>In this case, as shown in below, the dungeon consists of two vertically adjacent rooms, there is a unique vertically passable door between them, and the left and right sides of both rooms have two entrance and exit doors, respectively, in total.</p>
+<pre>| |
+ -
+| |
+</pre>
+<p>You use the magic first, and suppose that you choose the unique vertically passable door <code>- 1 1</code>.
+Then, no matter how DEGwer will choose doors, you can choose one from the remaining two entrance doors and one from the remaining two exit doors, which achieve your objective because the two rooms became connected by your first magic.</p>
+<p>The following is an example of interactive inputs and outputs.</p>
+<table class=""table table-bordered"">
+<thead>
+<tr>
+<th style=""text-align: left;"">Input   </th>
+<th style=""text-align: left;"">Output </th>
+<th style=""text-align: left;"">Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style=""text-align: left;""><code>2 1 First</code></td>
+<td style=""text-align: left;""></td>
+<td style=""text-align: left;"">An input is given.</td>
+</tr>
+<tr>
+<td style=""text-align: left;""></td>
+<td style=""text-align: left;""><code>Yes</code></td>
+<td style=""text-align: left;"">As your objective is achievable, you print <code>Yes</code>.</td>
+</tr>
+<tr>
+<td style=""text-align: left;""></td>
+<td style=""text-align: left;""><code>- 1 1</code></td>
+<td style=""text-align: left;"">You fix as open one that is <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>1</mn></mrow><annotation encoding=""application/x-tex"">1</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">1</span></span></span></span></span></var>st from the top and <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>1</mn></mrow><annotation encoding=""application/x-tex"">1</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">1</span></span></span></span></span></var>st from the left among the vertically passable door.</td>
+</tr>
+<tr>
+<td style=""text-align: left;""><code>| 1 2</code></td>
+<td style=""text-align: left;""></td>
+<td style=""text-align: left;"">DEGwer fixes as closed one that is <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>1</mn></mrow><annotation encoding=""application/x-tex"">1</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">1</span></span></span></span></span></var>st from the top and <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>2</mn></mrow><annotation encoding=""application/x-tex"">2</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">2</span></span></span></span></span></var>nd from the left among the horizontally passable doors, i.e., the upper-right exit door.</td>
+</tr>
+<tr>
+<td style=""text-align: left;""></td>
+<td style=""text-align: left;""><code>| 2 2</code></td>
+<td style=""text-align: left;"">You fix as open one that is <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>2</mn></mrow><annotation encoding=""application/x-tex"">2</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">2</span></span></span></span></span></var>nd from the top and <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>2</mn></mrow><annotation encoding=""application/x-tex"">2</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">2</span></span></span></span></span></var>nd from the left among the horizontally passable doors, i.e., the lower-right exit door.</td>
+</tr>
+<tr>
+<td style=""text-align: left;""><code>| 2 1</code></td>
+<td style=""text-align: left;""></td>
+<td style=""text-align: left;"">DEGwer fixes as closed one that is <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>2</mn></mrow><annotation encoding=""application/x-tex"">2</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">2</span></span></span></span></span></var>nd from the top and <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>1</mn></mrow><annotation encoding=""application/x-tex"">1</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">1</span></span></span></span></span></var>st from the left among the horizontally passable doors, i.e., the lower-left entrance door.</td>
+</tr>
+<tr>
+<td style=""text-align: left;""></td>
+<td style=""text-align: left;""><code>| 1 1</code></td>
+<td style=""text-align: left;"">You fix as open one that is <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>1</mn></mrow><annotation encoding=""application/x-tex"">1</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">1</span></span></span></span></span></var>st from the top and <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>1</mn></mrow><annotation encoding=""application/x-tex"">1</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">1</span></span></span></span></span></var>st from the left among the horizontally passable doors, i.e., the upper-left entrance door.</td>
+</tr>
+<tr>
+<td style=""text-align: left;""><code>a 0 0</code></td>
+<td style=""text-align: left;""></td>
+<td style=""text-align: left;"">At this point, it is confirmed that the open lower-right exit door can be reached from the open upper-left entrance door, and your program must halt immediately after receiving the input indicating it.</td>
+</tr>
+</tbody>
+</table>
+</section>
+</div>
+
+<hr>
+<div class=""part"">
+<section>
+<h3>Sample Input 3<span class=""btn btn-default btn-sm btn-copy ml-1"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample10"" data-original-title=""Copied!"">Copy</span></h3><div class=""div-btn-copy""><span class=""btn-copy btn-pre"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample10"" data-original-title=""Copied!"">Copy</span></div><pre id=""pre-sample10"">2 1 Second
+</pre>
+</section>
+</div>
+
+<div class=""part"">
+<section>
+<h3>Sample Output 3<span class=""btn btn-default btn-sm btn-copy ml-1"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample11"" data-original-title=""Copied!"">Copy</span></h3><div class=""div-btn-copy""><span class=""btn-copy btn-pre"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample11"" data-original-title=""Copied!"">Copy</span></div><pre id=""pre-sample11"">No
+</pre>
+<p>The dungeon is the same as above, but your objective is not achievable as DEGwer uses the magic first.
+For example, if DEGwer fixes the unique vertically passable door (that you choose first in Sample 2) as closed, then the situation is just like two parallel copies of Sample 1, in which your objective is not achievable even if you use the magic first.</p></section>
+</div>
+",0,"## Dungeon Doors Problem
+
+**Summary:**
+You are in a dungeon with a grid of rooms. Each room has doors to adjacent rooms, and there are entrance and exit doors on the left and right sides of the grid. You and an opponent, DEGwer, take turns choosing a door to fix as open or closed. Your goal is to connect an entrance door to an exit door by a path of open doors. Given the dungeon size and who moves first, determine if your goal is achievable. If it is, provide a sequence of moves to achieve it.
+
+**Steps:**
+1. Understand the Dungeon: The dungeon is a grid with `H` rows and `W` columns. Each room has doors to adjacent rooms, and there are `H*W` rooms in total.
+2. Understand the Rules: You and DEGwer take turns fixing doors as open or closed. You want to connect an entrance door to an exit door by a path of open doors.
+3. Determine if the Objective is Achievable: This depends on the dungeon size and who moves first. If you move first, you may be able to guarantee a path. If DEGwer moves first, they may be able to block all paths.
+4. Provide a Sequence of Moves: If your objective is achievable, provide a sequence of moves to fix specific doors as open, ensuring a path connects an entrance to an exit.
+
+**Sample Input 1:**
+```
+1 1 First
+```
+
+**Sample Output 1:**
+```
+No
+```
+
+**Explanation:**
+In this case, there is only one room with one entrance and one exit door. You must fix both as open to achieve your objective, but you cannot, even if you move first.
+
+**Sample Input 2:**
+```
+2 1 First
+```
+
+**Sample Output 2:**
+```
+Yes
+...
+```
+
+**Explanation:**
+Here, there are two vertically adjacent rooms. You move first and choose to fix the unique vertically passable door as open. No matter what DEGwer does, you can still choose an entrance and exit door to achieve your objective.
+
+The following is an example of interactive inputs and outputs:
+
+| Input | Output | Explanation |
+| --- | --- | --- |
+| `2 1 First` | | An input is given. |
+| | `Yes` | Your objective is achievable, so print `Yes`. |
+| | `- 1 1` | You fix the vertically passable door as open. |
+| `| 1 2` | | DEGwer fixes the upper-right exit door as closed. |
+| | `| 2 2` | You fix the lower-right exit door as open. |
+| `| 2 1` | | DEGwer fixes the lower-left entrance door as closed. |
+| | `| 1 1` | You fix the upper-left entrance door as open. |
+| `a 0 0` | | Your path is confirmed, and your program halts. |
+
+**Sample Input 3:**
+```
+2 1 Second
+```
+
+**Sample Output 3:**
+```
+No
+```
+
+**Explanation:**
+In this case, DEGwer moves first and can block the unique vertically passable door, making it impossible for you to connect an entrance to an exit door."
+DEGwer2023,1202Contest_c,C. binarydigit,https://atcoder.jp/contests/DEGwer2023/tasks/1202Contest_c,"
+<p>Score : <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>100</mn></mrow><annotation encoding=""application/x-tex"">100</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">1</span><span class=""mord"">0</span><span class=""mord"">0</span></span></span></span></span></var> points</p>
+
+<div class=""part"">
+<section>
+<h3>Problem Statement</h3><p>Find the number of <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>h</mi><mo>×</mo><mi>w</mi></mrow><annotation encoding=""application/x-tex"">h \times w</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.77777em; vertical-align: -0.08333em;""></span><span class=""mord mathnormal"">h</span><span class=""mspace"" style=""margin-right: 0.222222em;""></span><span class=""mbin"">×</span><span class=""mspace"" style=""margin-right: 0.222222em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.43056em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.02691em;"">w</span></span></span></span></span></var> binary matrices which satisfy both of the following conditions modulo <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>M</mi></mrow><annotation encoding=""application/x-tex"">M</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.10903em;"">M</span></span></span></span></span></var>:</p>
+<ul>
+<li>When each row is interpreted as a string of length <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>w</mi></mrow><annotation encoding=""application/x-tex"">w</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.43056em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.02691em;"">w</span></span></span></span></span></var>, they are sorted in lexicographical order in the row direction.</li>
+<li>When each column is interpreted as a string of length <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>h</mi></mrow><annotation encoding=""application/x-tex"">h</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.69444em; vertical-align: 0em;""></span><span class=""mord mathnormal"">h</span></span></span></span></span></var>, they are sorted in lexicographical order in the column direction.</li>
+</ul>
+<p>Given integers <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>H</mi><mo separator=""true"">,</mo><mi>W</mi></mrow><annotation encoding=""application/x-tex"">H, W</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.87777em; vertical-align: -0.19444em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.08125em;"">H</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.13889em;"">W</span></span></span></span></span></var> in the input, find the answer for all pairs of integers <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>h</mi><mo separator=""true"">,</mo><mi>w</mi></mrow><annotation encoding=""application/x-tex"">h, w</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.88888em; vertical-align: -0.19444em;""></span><span class=""mord mathnormal"">h</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.02691em;"">w</span></span></span></span></span></var> that satisfy <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>1</mn><mo>≤</mo><mi>h</mi><mo>≤</mo><mi>H</mi></mrow><annotation encoding=""application/x-tex"">1 \le h \le H</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.78041em; vertical-align: -0.13597em;""></span><span class=""mord"">1</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.83041em; vertical-align: -0.13597em;""></span><span class=""mord mathnormal"">h</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.08125em;"">H</span></span></span></span></span></var>, <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>1</mn><mo>≤</mo><mi>w</mi><mo>≤</mo><mi>W</mi></mrow><annotation encoding=""application/x-tex"">1 \le w \le W</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.78041em; vertical-align: -0.13597em;""></span><span class=""mord"">1</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.77194em; vertical-align: -0.13597em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.02691em;"">w</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.13889em;"">W</span></span></span></span></span></var>.</p>
+</section>
+</div>
+
+<div class=""part"">
+<section>
+<h3>Constraints</h3><ul>
+<li><var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>1</mn><mo>≤</mo><mi>H</mi><mo>≤</mo><mn>21</mn></mrow><annotation encoding=""application/x-tex"">1 \le H \le 21</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.78041em; vertical-align: -0.13597em;""></span><span class=""mord"">1</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.8193em; vertical-align: -0.13597em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.08125em;"">H</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">2</span><span class=""mord"">1</span></span></span></span></span></var></li>
+<li><var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>1</mn><mo>≤</mo><mi>W</mi><mo>≤</mo><mn>100</mn></mrow><annotation encoding=""application/x-tex"">1 \le W \le 100</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.78041em; vertical-align: -0.13597em;""></span><span class=""mord"">1</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.8193em; vertical-align: -0.13597em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.13889em;"">W</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">1</span><span class=""mord"">0</span><span class=""mord"">0</span></span></span></span></span></var></li>
+<li><var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>2</mn><mo>≤</mo><mi>M</mi><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>9</mn></msup></mrow><annotation encoding=""application/x-tex"">2 \le M \le 10^9</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.78041em; vertical-align: -0.13597em;""></span><span class=""mord"">2</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.8193em; vertical-align: -0.13597em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.10903em;"">M</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.814108em; vertical-align: 0em;""></span><span class=""mord"">1</span><span class=""mord""><span class=""mord"">0</span><span class=""msupsub""><span class=""vlist-t""><span class=""vlist-r""><span class=""vlist"" style=""height: 0.814108em;""><span class="""" style=""top: -3.063em; margin-right: 0.05em;""><span class=""pstrut"" style=""height: 2.7em;""></span><span class=""sizing reset-size6 size3 mtight""><span class=""mord mtight"">9</span></span></span></span></span></span></span></span></span></span></span></span></var></li>
+</ul>
+</section>
+</div>
+
+<hr>
+<div class=""io-style"">
+<div class=""part"">
+<section>
+<h3>Input</h3><p>The input is given from Standard Input in the following format:</p>
+<pre><var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>H</mi><mtext>&nbsp;</mtext><mi>W</mi><mtext>&nbsp;</mtext><mi>M</mi></mrow><annotation encoding=""application/x-tex"">H \ W \ M</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.08125em;"">H</span><span class=""mspace"">&nbsp;</span><span class=""mord mathnormal"" style=""margin-right: 0.13889em;"">W</span><span class=""mspace"">&nbsp;</span><span class=""mord mathnormal"" style=""margin-right: 0.10903em;"">M</span></span></span></span></span></var>
+</pre>
+</section>
+</div>
+
+<div class=""part"">
+<section>
+<h3>Output</h3><p>Output <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>H</mi></mrow><annotation encoding=""application/x-tex"">H</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.08125em;"">H</span></span></span></span></span></var> lines.
+For the <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>i</mi></mrow><annotation encoding=""application/x-tex"">i</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.65952em; vertical-align: 0em;""></span><span class=""mord mathnormal"">i</span></span></span></span></span></var>-th line <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mo stretchy=""false"">(</mo><mn>1</mn><mo>≤</mo><mi>i</mi><mo>≤</mo><mi>H</mi><mo stretchy=""false"">)</mo></mrow><annotation encoding=""application/x-tex"">(1 \le i \le H)</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mopen"">(</span><span class=""mord"">1</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.79549em; vertical-align: -0.13597em;""></span><span class=""mord mathnormal"">i</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.08125em;"">H</span><span class=""mclose"">)</span></span></span></span></span></var>, output <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>W</mi></mrow><annotation encoding=""application/x-tex"">W</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.13889em;"">W</span></span></span></span></span></var> integers separated by spaces. Specifically, the <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>j</mi></mrow><annotation encoding=""application/x-tex"">j</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.85396em; vertical-align: -0.19444em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.05724em;"">j</span></span></span></span></span></var>-th integer <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mo stretchy=""false"">(</mo><mn>1</mn><mo>≤</mo><mi>j</mi><mo>≤</mo><mi>W</mi><mo stretchy=""false"">)</mo></mrow><annotation encoding=""application/x-tex"">(1 \le j \le W)</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mopen"">(</span><span class=""mord"">1</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.85396em; vertical-align: -0.19444em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.05724em;"">j</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.13889em;"">W</span><span class=""mclose"">)</span></span></span></span></span></var> should be the answer to this problem when <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>h</mi><mo>=</mo><mi>i</mi><mo separator=""true"">,</mo><mi>w</mi><mo>=</mo><mi>j</mi></mrow><annotation encoding=""application/x-tex"">h = i, w = j</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.69444em; vertical-align: 0em;""></span><span class=""mord mathnormal"">h</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.85396em; vertical-align: -0.19444em;""></span><span class=""mord mathnormal"">i</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.02691em;"">w</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.85396em; vertical-align: -0.19444em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.05724em;"">j</span></span></span></span></span></var>.</p>
+</section>
+</div>
+</div>
+
+<hr>
+<div class=""part"">
+<section>
+<h3>Sample Input 1<span class=""btn btn-default btn-sm btn-copy ml-1"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample6"" data-original-title=""Copied!"">Copy</span></h3><div class=""div-btn-copy""><span class=""btn-copy btn-pre"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample6"" data-original-title=""Copied!"">Copy</span></div><pre id=""pre-sample6"">2 3 5201314
+</pre>
+</section>
+</div>
+
+<div class=""part"">
+<section>
+<h3>Sample Output 1<span class=""btn btn-default btn-sm btn-copy ml-1"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample7"" data-original-title=""Copied!"">Copy</span></h3><div class=""div-btn-copy""><span class=""btn-copy btn-pre"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample7"" data-original-title=""Copied!"">Copy</span></div><pre id=""pre-sample7"">2 3 4
+3 7 14
+</pre>
+<p>For example, in the case of <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mo stretchy=""false"">(</mo><mi>h</mi><mo separator=""true"">,</mo><mi>w</mi><mo stretchy=""false"">)</mo><mo>=</mo><mo stretchy=""false"">(</mo><mn>2</mn><mo separator=""true"">,</mo><mn>3</mn><mo stretchy=""false"">)</mo></mrow><annotation encoding=""application/x-tex"">(h, w) = (2, 3)</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mopen"">(</span><span class=""mord mathnormal"">h</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.02691em;"">w</span><span class=""mclose"">)</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mopen"">(</span><span class=""mord"">2</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">3</span><span class=""mclose"">)</span></span></span></span></span></var>, there are <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>14</mn></mrow><annotation encoding=""application/x-tex"">14</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">1</span><span class=""mord"">4</span></span></span></span></span></var> matrices that satisfy the conditions of the problem statement, as shown below:</p>
+<pre>000 000 000 000 001 001 001 001 001 011 011 011 011 111
+000 001 011 111 001 010 011 110 111 011 100 101 111 111
+</pre>
+</section>
+</div>
+
+<hr>
+<div class=""part"">
+<section>
+<h3>Sample Input 2<span class=""btn btn-default btn-sm btn-copy ml-1"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample8"" data-original-title=""Copied!"">Copy</span></h3><div class=""div-btn-copy""><span class=""btn-copy btn-pre"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample8"" data-original-title=""Copied!"">Copy</span></div><pre id=""pre-sample8"">10 8 1000000000
+</pre>
+</section>
+</div>
+
+<div class=""part"">
+<section>
+<h3>Sample Output 2<span class=""btn btn-default btn-sm btn-copy ml-1"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample9"" data-original-title=""Copied!"">Copy</span></h3><div class=""div-btn-copy""><span class=""btn-copy btn-pre"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample9"" data-original-title=""Copied!"">Copy</span></div><pre id=""pre-sample9"">2 3 4 5 6 7 8 9
+3 7 14 25 41 63 92 129
+4 14 45 130 336 785 1682 3351
+5 25 130 650 2942 11819 42305 136564
+6 41 336 2942 24520 183010 1202234 6979061
+7 63 785 11819 183010 2625117 33345183 371484319
+8 92 1682 42305 1202234 33345183 836488618 470742266
+9 129 3351 136564 6979061 371484319 470742266 230288201
+10 175 6280 402910 36211867 651371519 194085968 670171373
+11 231 11176 1099694 170079565 17940222 26957098 939510047
+</pre>
+</section>
+</div>
+
+<hr>
+<div class=""part"">
+<section>
+<h3>Sample Input 3<span class=""btn btn-default btn-sm btn-copy ml-1"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample10"" data-original-title=""Copied!"">Copy</span></h3><div class=""div-btn-copy""><span class=""btn-copy btn-pre"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample10"" data-original-title=""Copied!"">Copy</span></div><pre id=""pre-sample10"">5 5 2
+</pre>
+</section>
+</div>
+
+<div class=""part"">
+<section>
+<h3>Sample Output 3<span class=""btn btn-default btn-sm btn-copy ml-1"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample11"" data-original-title=""Copied!"">Copy</span></h3><div class=""div-btn-copy""><span class=""btn-copy btn-pre"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample11"" data-original-title=""Copied!"">Copy</span></div><pre id=""pre-sample11"">0 1 0 1 0
+1 1 0 1 1
+0 0 1 0 0
+1 1 0 0 0
+0 1 0 0 0
+</pre></section>
+</div>
+",1,"Here is a simplified version of the problem statement: 
+
+## Problem Summary:
+You are given three integers, $H$, $W$, and $M$. Your task is to find the number of specific binary matrices of size $h \times w$ for each possible combination of $h$ and $w$, where $1 \le h \le H$ and $1 \le w \le W$. 
+
+These binary matrices have two special properties:
+1. When each row is read as a binary number (a string of 0's and 1's), the rows must be in sorted order from top to bottom. 
+2. Similarly, when each column is read as a binary number, the columns must also be in sorted order from left to right. 
+
+Your output will be a grid of $H$ rows and $W$ columns, where the value at row $i$ and column $j$ is the number of valid matrices with dimensions $i \times j$, modulo $M$. 
+
+## Clear Steps to Solve the Problem:
+
+1. **Understand the Input and Output:**
+   - You are given three integers, $H$, $W$, and $M$.
+   - You need to calculate the number of valid matrices for each combination of $h$ and $w$, where $1 \le h \le H$ and $1 \le w \le W$.
+   - The output will be a grid of integers, with $H$ rows and $W$ columns, representing the count of valid matrices for each $h$ and $w$.
+
+2. **Understand the Constraints:**
+   - $1 \le H \le 21$
+   - $1 \le W \le 100$
+   - $2 \le M \le 10^9$
+
+3. **Understand the Valid Matrices:**
+   - Each row of the binary matrix, when read as a binary number, must be in sorted order.
+   - Each column of the binary matrix, when read as a binary number, must also be in sorted order.
+
+4. **Algorithm:**
+   - You can use dynamic programming to solve this problem efficiently. 
+   - Create a 2D array, `dp`, of size $(H+1) \times (W+1)$ to store the number of valid matrices for each $h$ and $w$. 
+   - Initialize `dp[0][0]` to 1, and all other `dp[i][0]` and `dp[0][j]` to 0.
+   - For each $h$ from 1 to $H$ and $w$ from 1 to $W$:
+     - If the current cell is empty, skip it.
+     - For each $k$ from 1 to $w$:
+       - Calculate the number of valid matrices with one more row and $k$ columns, denoted as `new_row`.
+       - Add `new_row` to `dp[i][k]` using modular arithmetic: `dp[i][k] = (dp[i][k] + new_row) % M`.
+
+5. **Calculate the Output:**
+   - For each $h$ from 1 to $H$:
+     - Print the $W$ integers from `dp[h][1]` to `dp[h][W]` separated by spaces.
+
+## Examples with Explanation:
+
+### Sample Input 1:
+```
+H = 2, W = 3, M = 5201314
+```
+
+### Sample Output 1:
+```
+2 3 4
+3 7 14
+```
+
+**Explanation:**
+For $(h, w) = (2, 3)$, there are 14 valid matrices:
+```
+000 000 000 000 001 001 001 001 001 011 011 011 011 111
+000 001 011 111 001 010 011 110 111 011 100 101 111 111
+```
+
+### Sample Input 2:
+```
+H = 10, W = 8, M = 1000000000
+```
+
+### Sample Output 2:
+```
+2 3 4 5 6 7 8 9
+3 7 14 25 41 63 92 129
+4 14 45 130 336 785 1682 3351
+5 25 130 650 2942 11819 42305 136564
+6 41 336 2942 24520 183010 1202234 6979061
+7 63 785 11819 183010 2625117 33345183 371484319
+8 92 1682 42305 1202234 33345183 836488618 470742266
+9 129 3351 136564 6979061 371484319 470742266 230288201
+10 175 6280 402910 36211867 651371519 194085968 670171373
+11 231 11176 1099694 170079565 1794022227 2695709823 939510047
+```
+
+### Sample Input 3:
+```
+H = 5, W = 5, M = 2
+```
+
+### Sample Output 3:
+```
+0 1 0 1 0
+1 1 0 1 1
+0 0 1 0 0
+1 1 0 0 0
+0 1 0 0 0
+```
+
+**Explanation:**
+For each $h$ and $w$, the output represents the number of valid matrices of size $h \times w$ modulo $M$. 
+
+I hope this breakdown helps you understand the problem and how to approach solving it. Let me know if you need any further clarification or assistance!"
+DEGwer2023,1202Contest_d,D. Coincidence,https://atcoder.jp/contests/DEGwer2023/tasks/1202Contest_d,"
+<p>Score : <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>100</mn></mrow><annotation encoding=""application/x-tex"">100</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">1</span><span class=""mord"">0</span><span class=""mord"">0</span></span></span></span></span></var> points</p>
+
+<div class=""part"">
+<section>
+<h3>Problem Statement</h3><p>You have a pair of integer sequences <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>A</mi><mo>=</mo><mo stretchy=""false"">(</mo><msub><mi>A</mi><mn>1</mn></msub><mo separator=""true"">,</mo><msub><mi>A</mi><mn>2</mn></msub><mo separator=""true"">,</mo><mo>…</mo><mo separator=""true"">,</mo><msub><mi>A</mi><mi>N</mi></msub><mo stretchy=""false"">)</mo><mo separator=""true"">,</mo><mi>B</mi><mo>=</mo><mo stretchy=""false"">(</mo><msub><mi>B</mi><mn>1</mn></msub><mo separator=""true"">,</mo><msub><mi>B</mi><mn>2</mn></msub><mo separator=""true"">,</mo><mo>…</mo><mo separator=""true"">,</mo><msub><mi>B</mi><mi>N</mi></msub><mo stretchy=""false"">)</mo></mrow><annotation encoding=""application/x-tex"">A=(A_1, A_2, \dots, A_N), B=(B_1, B_2, \dots, B_N)</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"">A</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mopen"">(</span><span class=""mord""><span class=""mord mathnormal"">A</span><span class=""msupsub""><span class=""vlist-t vlist-t2""><span class=""vlist-r""><span class=""vlist"" style=""height: 0.301108em;""><span class="""" style=""top: -2.55em; margin-left: 0em; margin-right: 0.05em;""><span class=""pstrut"" style=""height: 2.7em;""></span><span class=""sizing reset-size6 size3 mtight""><span class=""mord mtight"">1</span></span></span></span><span class=""vlist-s"">​</span></span><span class=""vlist-r""><span class=""vlist"" style=""height: 0.15em;""><span class=""""></span></span></span></span></span></span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord""><span class=""mord mathnormal"">A</span><span class=""msupsub""><span class=""vlist-t vlist-t2""><span class=""vlist-r""><span class=""vlist"" style=""height: 0.301108em;""><span class="""" style=""top: -2.55em; margin-left: 0em; margin-right: 0.05em;""><span class=""pstrut"" style=""height: 2.7em;""></span><span class=""sizing reset-size6 size3 mtight""><span class=""mord mtight"">2</span></span></span></span><span class=""vlist-s"">​</span></span><span class=""vlist-r""><span class=""vlist"" style=""height: 0.15em;""><span class=""""></span></span></span></span></span></span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""minner"">…</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord""><span class=""mord mathnormal"">A</span><span class=""msupsub""><span class=""vlist-t vlist-t2""><span class=""vlist-r""><span class=""vlist"" style=""height: 0.328331em;""><span class="""" style=""top: -2.55em; margin-left: 0em; margin-right: 0.05em;""><span class=""pstrut"" style=""height: 2.7em;""></span><span class=""sizing reset-size6 size3 mtight""><span class=""mord mathnormal mtight"" style=""margin-right: 0.10903em;"">N</span></span></span></span><span class=""vlist-s"">​</span></span><span class=""vlist-r""><span class=""vlist"" style=""height: 0.15em;""><span class=""""></span></span></span></span></span></span><span class=""mclose"">)</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.05017em;"">B</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mopen"">(</span><span class=""mord""><span class=""mord mathnormal"" style=""margin-right: 0.05017em;"">B</span><span class=""msupsub""><span class=""vlist-t vlist-t2""><span class=""vlist-r""><span class=""vlist"" style=""height: 0.301108em;""><span class="""" style=""top: -2.55em; margin-left: -0.05017em; margin-right: 0.05em;""><span class=""pstrut"" style=""height: 2.7em;""></span><span class=""sizing reset-size6 size3 mtight""><span class=""mord mtight"">1</span></span></span></span><span class=""vlist-s"">​</span></span><span class=""vlist-r""><span class=""vlist"" style=""height: 0.15em;""><span class=""""></span></span></span></span></span></span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord""><span class=""mord mathnormal"" style=""margin-right: 0.05017em;"">B</span><span class=""msupsub""><span class=""vlist-t vlist-t2""><span class=""vlist-r""><span class=""vlist"" style=""height: 0.301108em;""><span class="""" style=""top: -2.55em; margin-left: -0.05017em; margin-right: 0.05em;""><span class=""pstrut"" style=""height: 2.7em;""></span><span class=""sizing reset-size6 size3 mtight""><span class=""mord mtight"">2</span></span></span></span><span class=""vlist-s"">​</span></span><span class=""vlist-r""><span class=""vlist"" style=""height: 0.15em;""><span class=""""></span></span></span></span></span></span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""minner"">…</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord""><span class=""mord mathnormal"" style=""margin-right: 0.05017em;"">B</span><span class=""msupsub""><span class=""vlist-t vlist-t2""><span class=""vlist-r""><span class=""vlist"" style=""height: 0.328331em;""><span class="""" style=""top: -2.55em; margin-left: -0.05017em; margin-right: 0.05em;""><span class=""pstrut"" style=""height: 2.7em;""></span><span class=""sizing reset-size6 size3 mtight""><span class=""mord mathnormal mtight"" style=""margin-right: 0.10903em;"">N</span></span></span></span><span class=""vlist-s"">​</span></span><span class=""vlist-r""><span class=""vlist"" style=""height: 0.15em;""><span class=""""></span></span></span></span></span></span><span class=""mclose"">)</span></span></span></span></span></var>. Initially <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><msub><mi>A</mi><mi>i</mi></msub><mo>=</mo><msub><mi>B</mi><mi>i</mi></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding=""application/x-tex"">A_i=B_i=0</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.83333em; vertical-align: -0.15em;""></span><span class=""mord""><span class=""mord mathnormal"">A</span><span class=""msupsub""><span class=""vlist-t vlist-t2""><span class=""vlist-r""><span class=""vlist"" style=""height: 0.311664em;""><span class="""" style=""top: -2.55em; margin-left: 0em; margin-right: 0.05em;""><span class=""pstrut"" style=""height: 2.7em;""></span><span class=""sizing reset-size6 size3 mtight""><span class=""mord mathnormal mtight"">i</span></span></span></span><span class=""vlist-s"">​</span></span><span class=""vlist-r""><span class=""vlist"" style=""height: 0.15em;""><span class=""""></span></span></span></span></span></span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.83333em; vertical-align: -0.15em;""></span><span class=""mord""><span class=""mord mathnormal"" style=""margin-right: 0.05017em;"">B</span><span class=""msupsub""><span class=""vlist-t vlist-t2""><span class=""vlist-r""><span class=""vlist"" style=""height: 0.311664em;""><span class="""" style=""top: -2.55em; margin-left: -0.05017em; margin-right: 0.05em;""><span class=""pstrut"" style=""height: 2.7em;""></span><span class=""sizing reset-size6 size3 mtight""><span class=""mord mathnormal mtight"">i</span></span></span></span><span class=""vlist-s"">​</span></span><span class=""vlist-r""><span class=""vlist"" style=""height: 0.15em;""><span class=""""></span></span></span></span></span></span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">0</span></span></span></span></span></var> holds for all <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>i</mi><mo>=</mo><mn>1</mn><mo separator=""true"">,</mo><mn>2</mn><mo separator=""true"">,</mo><mo>…</mo><mo separator=""true"">,</mo><mi>N</mi></mrow><annotation encoding=""application/x-tex"">i = 1, 2, \dots, N</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.65952em; vertical-align: 0em;""></span><span class=""mord mathnormal"">i</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.87777em; vertical-align: -0.19444em;""></span><span class=""mord"">1</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">2</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""minner"">…</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.10903em;"">N</span></span></span></span></span></var>.  </p>
+<p>You will perform the following operation <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>M</mi></mrow><annotation encoding=""application/x-tex"">M</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.10903em;"">M</span></span></span></span></span></var> times.</p>
+<ul>
+<li><b>Operation</b>: Choose two integers <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>i</mi><mo separator=""true"">,</mo><mi>j</mi><mtext>&nbsp;</mtext><mo stretchy=""false"">(</mo><mn>1</mn><mo>≤</mo><mi>i</mi><mo separator=""true"">,</mo><mi>j</mi><mo>≤</mo><mi>N</mi><mo stretchy=""false"">)</mo></mrow><annotation encoding=""application/x-tex"">i, j\ (1 \le i, j \le N)</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mord mathnormal"">i</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.05724em;"">j</span><span class=""mspace"">&nbsp;</span><span class=""mopen"">(</span><span class=""mord"">1</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.85396em; vertical-align: -0.19444em;""></span><span class=""mord mathnormal"">i</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.05724em;"">j</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.10903em;"">N</span><span class=""mclose"">)</span></span></span></span></span></var> and increment <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><msub><mi>A</mi><mi>i</mi></msub></mrow><annotation encoding=""application/x-tex"">A_i</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.83333em; vertical-align: -0.15em;""></span><span class=""mord""><span class=""mord mathnormal"">A</span><span class=""msupsub""><span class=""vlist-t vlist-t2""><span class=""vlist-r""><span class=""vlist"" style=""height: 0.311664em;""><span class="""" style=""top: -2.55em; margin-left: 0em; margin-right: 0.05em;""><span class=""pstrut"" style=""height: 2.7em;""></span><span class=""sizing reset-size6 size3 mtight""><span class=""mord mathnormal mtight"">i</span></span></span></span><span class=""vlist-s"">​</span></span><span class=""vlist-r""><span class=""vlist"" style=""height: 0.15em;""><span class=""""></span></span></span></span></span></span></span></span></span></span></var> and <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><msub><mi>B</mi><mi>j</mi></msub></mrow><annotation encoding=""application/x-tex"">B_j</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.969438em; vertical-align: -0.286108em;""></span><span class=""mord""><span class=""mord mathnormal"" style=""margin-right: 0.05017em;"">B</span><span class=""msupsub""><span class=""vlist-t vlist-t2""><span class=""vlist-r""><span class=""vlist"" style=""height: 0.311664em;""><span class="""" style=""top: -2.55em; margin-left: -0.05017em; margin-right: 0.05em;""><span class=""pstrut"" style=""height: 2.7em;""></span><span class=""sizing reset-size6 size3 mtight""><span class=""mord mathnormal mtight"" style=""margin-right: 0.05724em;"">j</span></span></span></span><span class=""vlist-s"">​</span></span><span class=""vlist-r""><span class=""vlist"" style=""height: 0.286108em;""><span class=""""></span></span></span></span></span></span></span></span></span></span></var> by <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>1</mn></mrow><annotation encoding=""application/x-tex"">1</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">1</span></span></span></span></span></var>.</li>
+</ul>
+<p>Here, out of the <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>M</mi></mrow><annotation encoding=""application/x-tex"">M</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.10903em;"">M</span></span></span></span></span></var> operations, the number of operations in which <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>i</mi><mo>=</mo><mi>j</mi></mrow><annotation encoding=""application/x-tex"">i=j</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.65952em; vertical-align: 0em;""></span><span class=""mord mathnormal"">i</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.85396em; vertical-align: -0.19444em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.05724em;"">j</span></span></span></span></span></var> holds must be <b>exactly</b> <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>X</mi></mrow><annotation encoding=""application/x-tex"">X</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.07847em;"">X</span></span></span></span></span></var>.</p>
+<p>Find the number, modulo <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>998244353</mn></mrow><annotation encoding=""application/x-tex"">998244353</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">9</span><span class=""mord"">9</span><span class=""mord"">8</span><span class=""mord"">2</span><span class=""mord"">4</span><span class=""mord"">4</span><span class=""mord"">3</span><span class=""mord"">5</span><span class=""mord"">3</span></span></span></span></span></var>, of pairs of integer sequences that <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>A</mi><mo separator=""true"">,</mo><mi>B</mi></mrow><annotation encoding=""application/x-tex"">A, B</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.87777em; vertical-align: -0.19444em;""></span><span class=""mord mathnormal"">A</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.05017em;"">B</span></span></span></span></span></var> can be after the <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>M</mi></mrow><annotation encoding=""application/x-tex"">M</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.10903em;"">M</span></span></span></span></span></var> operations.</p>
+</section>
+</div>
+
+<div class=""part"">
+<section>
+<h3>Constraints</h3><ul>
+<li><var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>2</mn><mo>≤</mo><mi>N</mi><mo>≤</mo><mn>3000</mn></mrow><annotation encoding=""application/x-tex"">2 \leq N \leq 3000</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.78041em; vertical-align: -0.13597em;""></span><span class=""mord"">2</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.8193em; vertical-align: -0.13597em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.10903em;"">N</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">3</span><span class=""mord"">0</span><span class=""mord"">0</span><span class=""mord"">0</span></span></span></span></span></var></li>
+<li><var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>0</mn><mo>≤</mo><mi>X</mi><mo>≤</mo><mi>M</mi><mo>≤</mo><mn>3000</mn></mrow><annotation encoding=""application/x-tex"">0 \leq X \leq M \le 3000</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.78041em; vertical-align: -0.13597em;""></span><span class=""mord"">0</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.8193em; vertical-align: -0.13597em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.07847em;"">X</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.8193em; vertical-align: -0.13597em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.10903em;"">M</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">3</span><span class=""mord"">0</span><span class=""mord"">0</span><span class=""mord"">0</span></span></span></span></span></var></li>
+<li>All input values are integers.</li>
+</ul>
+</section>
+</div>
+
+<hr>
+<div class=""io-style"">
+<div class=""part"">
+<section>
+<h3>Input</h3><p>The input is given from Standard Input in the following format:</p>
+<pre><var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>N</mi><mtext>&nbsp;</mtext><mi>M</mi><mtext>&nbsp;</mtext><mi>X</mi></mrow><annotation encoding=""application/x-tex"">N \ M \ X</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.10903em;"">N</span><span class=""mspace"">&nbsp;</span><span class=""mord mathnormal"" style=""margin-right: 0.10903em;"">M</span><span class=""mspace"">&nbsp;</span><span class=""mord mathnormal"" style=""margin-right: 0.07847em;"">X</span></span></span></span></span></var>
+</pre>
+</section>
+</div>
+
+<div class=""part"">
+<section>
+<h3>Output</h3><p>Print the number, modulo <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>998244353</mn></mrow><annotation encoding=""application/x-tex"">998244353</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">9</span><span class=""mord"">9</span><span class=""mord"">8</span><span class=""mord"">2</span><span class=""mord"">4</span><span class=""mord"">4</span><span class=""mord"">3</span><span class=""mord"">5</span><span class=""mord"">3</span></span></span></span></span></var>, of pairs of integer sequences that <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>A</mi><mo separator=""true"">,</mo><mi>B</mi></mrow><annotation encoding=""application/x-tex"">A, B</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.87777em; vertical-align: -0.19444em;""></span><span class=""mord mathnormal"">A</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.05017em;"">B</span></span></span></span></span></var> can be after the <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>M</mi></mrow><annotation encoding=""application/x-tex"">M</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.10903em;"">M</span></span></span></span></span></var> operations.</p>
+</section>
+</div>
+</div>
+
+<hr>
+<div class=""part"">
+<section>
+<h3>Sample Input 1<span class=""btn btn-default btn-sm btn-copy ml-1"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample8"" data-original-title=""Copied!"">Copy</span></h3><div class=""div-btn-copy""><span class=""btn-copy btn-pre"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample8"" data-original-title=""Copied!"">Copy</span></div><pre id=""pre-sample8"">3 1 1
+</pre>
+</section>
+</div>
+
+<div class=""part"">
+<section>
+<h3>Sample Output 1<span class=""btn btn-default btn-sm btn-copy ml-1"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample9"" data-original-title=""Copied!"">Copy</span></h3><div class=""div-btn-copy""><span class=""btn-copy btn-pre"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample9"" data-original-title=""Copied!"">Copy</span></div><pre id=""pre-sample9"">3
+</pre>
+<p>The following <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>3</mn></mrow><annotation encoding=""application/x-tex"">3</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">3</span></span></span></span></span></var> pairs are possible.</p>
+<ul>
+<li><var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>A</mi><mo>=</mo><mo stretchy=""false"">(</mo><mn>1</mn><mo separator=""true"">,</mo><mn>0</mn><mo separator=""true"">,</mo><mn>0</mn><mo stretchy=""false"">)</mo><mo separator=""true"">,</mo><mtext>&nbsp;</mtext><mi>B</mi><mo>=</mo><mo stretchy=""false"">(</mo><mn>1</mn><mo separator=""true"">,</mo><mn>0</mn><mo separator=""true"">,</mo><mn>0</mn><mo stretchy=""false"">)</mo></mrow><annotation encoding=""application/x-tex"">A=(1,0,0), \ B=(1,0,0)</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"">A</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mopen"">(</span><span class=""mord"">1</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">0</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">0</span><span class=""mclose"">)</span><span class=""mpunct"">,</span><span class=""mspace"">&nbsp;</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.05017em;"">B</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mopen"">(</span><span class=""mord"">1</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">0</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">0</span><span class=""mclose"">)</span></span></span></span></span></var></li>
+<li><var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>A</mi><mo>=</mo><mo stretchy=""false"">(</mo><mn>0</mn><mo separator=""true"">,</mo><mn>1</mn><mo separator=""true"">,</mo><mn>0</mn><mo stretchy=""false"">)</mo><mo separator=""true"">,</mo><mtext>&nbsp;</mtext><mi>B</mi><mo>=</mo><mo stretchy=""false"">(</mo><mn>0</mn><mo separator=""true"">,</mo><mn>1</mn><mo separator=""true"">,</mo><mn>0</mn><mo stretchy=""false"">)</mo></mrow><annotation encoding=""application/x-tex"">A=(0,1,0), \ B=(0,1,0)</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"">A</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mopen"">(</span><span class=""mord"">0</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">1</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">0</span><span class=""mclose"">)</span><span class=""mpunct"">,</span><span class=""mspace"">&nbsp;</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.05017em;"">B</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mopen"">(</span><span class=""mord"">0</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">1</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">0</span><span class=""mclose"">)</span></span></span></span></span></var></li>
+<li><var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>A</mi><mo>=</mo><mo stretchy=""false"">(</mo><mn>0</mn><mo separator=""true"">,</mo><mn>0</mn><mo separator=""true"">,</mo><mn>1</mn><mo stretchy=""false"">)</mo><mo separator=""true"">,</mo><mtext>&nbsp;</mtext><mi>B</mi><mo>=</mo><mo stretchy=""false"">(</mo><mn>0</mn><mo separator=""true"">,</mo><mn>0</mn><mo separator=""true"">,</mo><mn>1</mn><mo stretchy=""false"">)</mo></mrow><annotation encoding=""application/x-tex"">A=(0,0,1), \ B=(0,0,1)</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"">A</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mopen"">(</span><span class=""mord"">0</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">0</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">1</span><span class=""mclose"">)</span><span class=""mpunct"">,</span><span class=""mspace"">&nbsp;</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.05017em;"">B</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mopen"">(</span><span class=""mord"">0</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">0</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">1</span><span class=""mclose"">)</span></span></span></span></span></var></li>
+</ul>
+</section>
+</div>
+
+<hr>
+<div class=""part"">
+<section>
+<h3>Sample Input 2<span class=""btn btn-default btn-sm btn-copy ml-1"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample10"" data-original-title=""Copied!"">Copy</span></h3><div class=""div-btn-copy""><span class=""btn-copy btn-pre"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample10"" data-original-title=""Copied!"">Copy</span></div><pre id=""pre-sample10"">3 1 0
+</pre>
+</section>
+</div>
+
+<div class=""part"">
+<section>
+<h3>Sample Output 2<span class=""btn btn-default btn-sm btn-copy ml-1"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample11"" data-original-title=""Copied!"">Copy</span></h3><div class=""div-btn-copy""><span class=""btn-copy btn-pre"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample11"" data-original-title=""Copied!"">Copy</span></div><pre id=""pre-sample11"">6
+</pre>
+<p>The following <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>6</mn></mrow><annotation encoding=""application/x-tex"">6</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">6</span></span></span></span></span></var> pairs are possible.</p>
+<ul>
+<li><var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>A</mi><mo>=</mo><mo stretchy=""false"">(</mo><mn>1</mn><mo separator=""true"">,</mo><mn>0</mn><mo separator=""true"">,</mo><mn>0</mn><mo stretchy=""false"">)</mo><mo separator=""true"">,</mo><mtext>&nbsp;</mtext><mi>B</mi><mo>=</mo><mo stretchy=""false"">(</mo><mn>0</mn><mo separator=""true"">,</mo><mn>1</mn><mo separator=""true"">,</mo><mn>0</mn><mo stretchy=""false"">)</mo></mrow><annotation encoding=""application/x-tex"">A=(1,0,0), \ B=(0,1,0)</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"">A</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mopen"">(</span><span class=""mord"">1</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">0</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">0</span><span class=""mclose"">)</span><span class=""mpunct"">,</span><span class=""mspace"">&nbsp;</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.05017em;"">B</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mopen"">(</span><span class=""mord"">0</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">1</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">0</span><span class=""mclose"">)</span></span></span></span></span></var></li>
+<li><var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>A</mi><mo>=</mo><mo stretchy=""false"">(</mo><mn>1</mn><mo separator=""true"">,</mo><mn>0</mn><mo separator=""true"">,</mo><mn>0</mn><mo stretchy=""false"">)</mo><mo separator=""true"">,</mo><mtext>&nbsp;</mtext><mi>B</mi><mo>=</mo><mo stretchy=""false"">(</mo><mn>0</mn><mo separator=""true"">,</mo><mn>0</mn><mo separator=""true"">,</mo><mn>1</mn><mo stretchy=""false"">)</mo></mrow><annotation encoding=""application/x-tex"">A=(1,0,0), \ B=(0,0,1)</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"">A</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mopen"">(</span><span class=""mord"">1</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">0</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">0</span><span class=""mclose"">)</span><span class=""mpunct"">,</span><span class=""mspace"">&nbsp;</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.05017em;"">B</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mopen"">(</span><span class=""mord"">0</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">0</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">1</span><span class=""mclose"">)</span></span></span></span></span></var></li>
+<li><var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>A</mi><mo>=</mo><mo stretchy=""false"">(</mo><mn>0</mn><mo separator=""true"">,</mo><mn>1</mn><mo separator=""true"">,</mo><mn>0</mn><mo stretchy=""false"">)</mo><mo separator=""true"">,</mo><mtext>&nbsp;</mtext><mi>B</mi><mo>=</mo><mo stretchy=""false"">(</mo><mn>1</mn><mo separator=""true"">,</mo><mn>0</mn><mo separator=""true"">,</mo><mn>0</mn><mo stretchy=""false"">)</mo></mrow><annotation encoding=""application/x-tex"">A=(0,1,0), \ B=(1,0,0)</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"">A</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mopen"">(</span><span class=""mord"">0</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">1</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">0</span><span class=""mclose"">)</span><span class=""mpunct"">,</span><span class=""mspace"">&nbsp;</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.05017em;"">B</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mopen"">(</span><span class=""mord"">1</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">0</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">0</span><span class=""mclose"">)</span></span></span></span></span></var></li>
+<li><var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>A</mi><mo>=</mo><mo stretchy=""false"">(</mo><mn>0</mn><mo separator=""true"">,</mo><mn>1</mn><mo separator=""true"">,</mo><mn>0</mn><mo stretchy=""false"">)</mo><mo separator=""true"">,</mo><mtext>&nbsp;</mtext><mi>B</mi><mo>=</mo><mo stretchy=""false"">(</mo><mn>0</mn><mo separator=""true"">,</mo><mn>0</mn><mo separator=""true"">,</mo><mn>1</mn><mo stretchy=""false"">)</mo></mrow><annotation encoding=""application/x-tex"">A=(0,1,0), \ B=(0,0,1)</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"">A</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mopen"">(</span><span class=""mord"">0</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">1</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">0</span><span class=""mclose"">)</span><span class=""mpunct"">,</span><span class=""mspace"">&nbsp;</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.05017em;"">B</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mopen"">(</span><span class=""mord"">0</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">0</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">1</span><span class=""mclose"">)</span></span></span></span></span></var></li>
+<li><var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>A</mi><mo>=</mo><mo stretchy=""false"">(</mo><mn>0</mn><mo separator=""true"">,</mo><mn>0</mn><mo separator=""true"">,</mo><mn>1</mn><mo stretchy=""false"">)</mo><mo separator=""true"">,</mo><mtext>&nbsp;</mtext><mi>B</mi><mo>=</mo><mo stretchy=""false"">(</mo><mn>1</mn><mo separator=""true"">,</mo><mn>0</mn><mo separator=""true"">,</mo><mn>0</mn><mo stretchy=""false"">)</mo></mrow><annotation encoding=""application/x-tex"">A=(0,0,1), \ B=(1,0,0)</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"">A</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mopen"">(</span><span class=""mord"">0</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">0</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">1</span><span class=""mclose"">)</span><span class=""mpunct"">,</span><span class=""mspace"">&nbsp;</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.05017em;"">B</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mopen"">(</span><span class=""mord"">1</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">0</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">0</span><span class=""mclose"">)</span></span></span></span></span></var></li>
+<li><var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>A</mi><mo>=</mo><mo stretchy=""false"">(</mo><mn>0</mn><mo separator=""true"">,</mo><mn>0</mn><mo separator=""true"">,</mo><mn>1</mn><mo stretchy=""false"">)</mo><mo separator=""true"">,</mo><mtext>&nbsp;</mtext><mi>B</mi><mo>=</mo><mo stretchy=""false"">(</mo><mn>0</mn><mo separator=""true"">,</mo><mn>1</mn><mo separator=""true"">,</mo><mn>0</mn><mo stretchy=""false"">)</mo></mrow><annotation encoding=""application/x-tex"">A=(0,0,1), \ B=(0,1,0)</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"">A</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mopen"">(</span><span class=""mord"">0</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">0</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">1</span><span class=""mclose"">)</span><span class=""mpunct"">,</span><span class=""mspace"">&nbsp;</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.05017em;"">B</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mopen"">(</span><span class=""mord"">0</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">1</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">0</span><span class=""mclose"">)</span></span></span></span></span></var></li>
+</ul>
+</section>
+</div>
+
+<hr>
+<div class=""part"">
+<section>
+<h3>Sample Input 3<span class=""btn btn-default btn-sm btn-copy ml-1"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample12"" data-original-title=""Copied!"">Copy</span></h3><div class=""div-btn-copy""><span class=""btn-copy btn-pre"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample12"" data-original-title=""Copied!"">Copy</span></div><pre id=""pre-sample12"">4 4 2
+</pre>
+</section>
+</div>
+
+<div class=""part"">
+<section>
+<h3>Sample Output 3<span class=""btn btn-default btn-sm btn-copy ml-1"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample13"" data-original-title=""Copied!"">Copy</span></h3><div class=""div-btn-copy""><span class=""btn-copy btn-pre"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample13"" data-original-title=""Copied!"">Copy</span></div><pre id=""pre-sample13"">643
+</pre>
+<p>The followings are examples of possible pairs.</p>
+<ul>
+<li><var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>A</mi><mo>=</mo><mo stretchy=""false"">(</mo><mn>1</mn><mo separator=""true"">,</mo><mn>1</mn><mo separator=""true"">,</mo><mn>1</mn><mo separator=""true"">,</mo><mn>1</mn><mo stretchy=""false"">)</mo><mo separator=""true"">,</mo><mtext>&nbsp;</mtext><mi>B</mi><mo>=</mo><mo stretchy=""false"">(</mo><mn>1</mn><mo separator=""true"">,</mo><mn>1</mn><mo separator=""true"">,</mo><mn>1</mn><mo separator=""true"">,</mo><mn>1</mn><mo stretchy=""false"">)</mo></mrow><annotation encoding=""application/x-tex"">A=(1,1,1,1), \ B=(1,1,1,1)</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"">A</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mopen"">(</span><span class=""mord"">1</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">1</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">1</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">1</span><span class=""mclose"">)</span><span class=""mpunct"">,</span><span class=""mspace"">&nbsp;</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.05017em;"">B</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mopen"">(</span><span class=""mord"">1</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">1</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">1</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">1</span><span class=""mclose"">)</span></span></span></span></span></var></li>
+<li><var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>A</mi><mo>=</mo><mo stretchy=""false"">(</mo><mn>1</mn><mo separator=""true"">,</mo><mn>0</mn><mo separator=""true"">,</mo><mn>0</mn><mo separator=""true"">,</mo><mn>3</mn><mo stretchy=""false"">)</mo><mo separator=""true"">,</mo><mtext>&nbsp;</mtext><mi>B</mi><mo>=</mo><mo stretchy=""false"">(</mo><mn>0</mn><mo separator=""true"">,</mo><mn>1</mn><mo separator=""true"">,</mo><mn>0</mn><mo separator=""true"">,</mo><mn>3</mn><mo stretchy=""false"">)</mo></mrow><annotation encoding=""application/x-tex"">A=(1,0,0,3), \ B=(0,1,0,3)</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"">A</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mopen"">(</span><span class=""mord"">1</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">0</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">0</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">3</span><span class=""mclose"">)</span><span class=""mpunct"">,</span><span class=""mspace"">&nbsp;</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.05017em;"">B</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mopen"">(</span><span class=""mord"">0</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">1</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">0</span><span class=""mpunct"">,</span><span class=""mspace"" style=""margin-right: 0.166667em;""></span><span class=""mord"">3</span><span class=""mclose"">)</span></span></span></span></span></var></li>
+</ul>
+</section>
+</div>
+
+<hr>
+<div class=""part"">
+<section>
+<h3>Sample Input 4<span class=""btn btn-default btn-sm btn-copy ml-1"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample14"" data-original-title=""Copied!"">Copy</span></h3><div class=""div-btn-copy""><span class=""btn-copy btn-pre"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample14"" data-original-title=""Copied!"">Copy</span></div><pre id=""pre-sample14"">314 1592 653
+</pre>
+</section>
+</div>
+
+<div class=""part"">
+<section>
+<h3>Sample Output 4<span class=""btn btn-default btn-sm btn-copy ml-1"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample15"" data-original-title=""Copied!"">Copy</span></h3><div class=""div-btn-copy""><span class=""btn-copy btn-pre"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample15"" data-original-title=""Copied!"">Copy</span></div><pre id=""pre-sample15"">755768689
+</pre></section>
+</div>
+",1,"## Problem Summary:
+Given two integer sequences, **A** and **B**, each of length **N**, initially set to all zeros, and a set of **M** operations. Each operation increments an element in both sequences by 1. Out of these **M** operations, **X** operations must be performed on the same index **i** in both sequences. Find the number of possible pairs of sequences **A** and **B** after all **M** operations, modulo **998244353**.
+
+## Steps:
+1. Take input **N**, **M**, and **X**.
+2. Calculate the number of ways to choose **X** operations out of **M** operations, which is given by the binomial coefficient ""**M choose X**"".
+3. Calculate the number of ways to distribute the **X** operations among the **N** indices, which is given by ""**N to the power X**"".
+4. Calculate the number of ways to distribute the remaining **(M - X)** operations among the **N** indices, which is given by ""**N to the power (M - X)**"".
+5. The final answer is the product of the above three values, modulo **998244353**.
+
+## Examples:
+### Example 1:
+**Input:**
+```
+N = 3, M = 1, X = 1
+```
+**Output:**
+```
+3
+```
+**Explanation:**
+The three possible pairs of sequences are:
+- A = (1, 0, 0), B = (1, 0, 0)
+- A = (0, 1, 0), B = (0, 1, 0)
+- A = (0, 0, 1), B = (0, 0, 1)
+
+### Example 2:
+**Input:**
+```
+N = 3, M = 1, X = 0
+```
+**Output:**
+```
+6
+```
+**Explanation:**
+The six possible pairs of sequences are:
+- A = (1, 0, 0), B = (0, 1, 0)
+- A = (1, 0, 0), B = (0, 0, 1)
+- A = (0, 1, 0), B = (1, 0, 0)
+- A = (0, 1, 0), B = (0, 0, 1)
+- A = (0, 0, 1), B = (1, 0, 0)
+- A = (0, 0, 1), B = (0, 1, 0)
+
+### Example 3:
+**Input:**
+```
+N = 4, M = 4, X = 2
+```
+**Output:**
+```
+643
+```
+**Explanation:**
+Some possible pairs of sequences are:
+- A = (1, 1, 1, 1), B = (1, 1, 1, 1)
+- A = (1, 0, 0, 3), B = (0, 1, 0, 3)
+
+### Example 4:
+**Input:**
+```
+N = 314, M = 1592, X = 653
+```
+**Output:**
+```
+755768689
+```
+
+The code to solve this problem is as follows:
+```python
+def factorial(n, mod):
+    res = 1
+    for i in range(1, n + 1):
+        res = (res * i) % mod
+    return res
+
+
+def inv_mod(n, mod):
+    return pow(n, mod - 2, mod)
+
+
+def comb(n, r, mod):
+    return factorial(n, mod) * inv_mod(factorial(r, mod) * factorial(n - r, mod) % mod, mod) % mod
+
+
+n, m, x = map(int, input().split())
+print(comb(m, x, 998244353) * pow(n, x, 998244353) * pow(n, m - x, 998244353) % 998244353)
+```"
+DEGwer2023,1202Contest_e,E. Half Palindromes,https://atcoder.jp/contests/DEGwer2023/tasks/1202Contest_e,"
+<p>Score : <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>100</mn></mrow><annotation encoding=""application/x-tex"">100</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">1</span><span class=""mord"">0</span><span class=""mord"">0</span></span></span></span></span></var> points</p>
+
+<div class=""part"">
+<section>
+<h3>Problem Statement</h3><p>You are given a string <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>S</mi></mrow><annotation encoding=""application/x-tex"">S</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.05764em;"">S</span></span></span></span></span></var> consisting of lowercase letters. 
+For each contiguous substring of <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>S</mi></mrow><annotation encoding=""application/x-tex"">S</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.05764em;"">S</span></span></span></span></span></var> (there are <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi mathvariant=""normal"">∣</mi><mi>S</mi><mi mathvariant=""normal"">∣</mi><mo stretchy=""false"">(</mo><mi mathvariant=""normal"">∣</mi><mi>S</mi><mi mathvariant=""normal"">∣</mi><mo>+</mo><mn>1</mn><mo stretchy=""false"">)</mo><mi mathvariant=""normal"">/</mi><mn>2</mn></mrow><annotation encoding=""application/x-tex"">|S|(|S|+1)/2</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mord"">∣</span><span class=""mord mathnormal"" style=""margin-right: 0.05764em;"">S</span><span class=""mord"">∣</span><span class=""mopen"">(</span><span class=""mord"">∣</span><span class=""mord mathnormal"" style=""margin-right: 0.05764em;"">S</span><span class=""mord"">∣</span><span class=""mspace"" style=""margin-right: 0.222222em;""></span><span class=""mbin"">+</span><span class=""mspace"" style=""margin-right: 0.222222em;""></span></span><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mord"">1</span><span class=""mclose"">)</span><span class=""mord"">/</span><span class=""mord"">2</span></span></span></span></span></var> such substrings), solve the following problem, and compute the sum of the answers.</p>
+<p>Problem: You are given a string <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>T</mi></mrow><annotation encoding=""application/x-tex"">T</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.13889em;"">T</span></span></span></span></span></var> consisting of lowercase letters. 
+Compute the minimum possible length of a string that can be obtained from <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>T</mi></mrow><annotation encoding=""application/x-tex"">T</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.13889em;"">T</span></span></span></span></span></var> by repeatedly applying the following operation an arbitrary number of times.</p>
+<ul>
+<li>Take a prefix of <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>T</mi></mrow><annotation encoding=""application/x-tex"">T</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.13889em;"">T</span></span></span></span></span></var> that is a palindrome of odd length. Let the length be <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>2</mn><mi>k</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding=""application/x-tex"">2k+1</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.77777em; vertical-align: -0.08333em;""></span><span class=""mord"">2</span><span class=""mord mathnormal"" style=""margin-right: 0.03148em;"">k</span><span class=""mspace"" style=""margin-right: 0.222222em;""></span><span class=""mbin"">+</span><span class=""mspace"" style=""margin-right: 0.222222em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">1</span></span></span></span></span></var>. Remove the first <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>k</mi></mrow><annotation encoding=""application/x-tex"">k</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.69444em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.03148em;"">k</span></span></span></span></span></var> letters of <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>T</mi></mrow><annotation encoding=""application/x-tex"">T</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.13889em;"">T</span></span></span></span></span></var>.</li>
+</ul>
+</section>
+</div>
+
+<div class=""part"">
+<section>
+<h3>Constraints</h3><ul>
+<li><var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>1</mn><mo>≤</mo><mi mathvariant=""normal"">∣</mi><mi>S</mi><mi mathvariant=""normal"">∣</mi><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>6</mn></msup></mrow><annotation encoding=""application/x-tex"">1\leq |S|\leq 10^6</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.78041em; vertical-align: -0.13597em;""></span><span class=""mord"">1</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 1em; vertical-align: -0.25em;""></span><span class=""mord"">∣</span><span class=""mord mathnormal"" style=""margin-right: 0.05764em;"">S</span><span class=""mord"">∣</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">≤</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.814108em; vertical-align: 0em;""></span><span class=""mord"">1</span><span class=""mord""><span class=""mord"">0</span><span class=""msupsub""><span class=""vlist-t""><span class=""vlist-r""><span class=""vlist"" style=""height: 0.814108em;""><span class="""" style=""top: -3.063em; margin-right: 0.05em;""><span class=""pstrut"" style=""height: 2.7em;""></span><span class=""sizing reset-size6 size3 mtight""><span class=""mord mtight"">6</span></span></span></span></span></span></span></span></span></span></span></span></var></li>
+<li><var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>S</mi></mrow><annotation encoding=""application/x-tex"">S</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.05764em;"">S</span></span></span></span></span></var> consists of lowercase letters.</li>
+</ul>
+</section>
+</div>
+
+<hr>
+<div class=""io-style"">
+<div class=""part"">
+<section>
+<h3>Input</h3><p>The input is given from Standard Input in the following format:</p>
+<pre><var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>S</mi></mrow><annotation encoding=""application/x-tex"">S</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.05764em;"">S</span></span></span></span></span></var>
+</pre>
+</section>
+</div>
+
+<div class=""part"">
+<section>
+<h3>Output</h3><p>Print the answer.</p>
+</section>
+</div>
+</div>
+
+<hr>
+<div class=""part"">
+<section>
+<h3>Sample Input 1<span class=""btn btn-default btn-sm btn-copy ml-1"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample6"" data-original-title=""Copied!"">Copy</span></h3><div class=""div-btn-copy""><span class=""btn-copy btn-pre"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample6"" data-original-title=""Copied!"">Copy</span></div><pre id=""pre-sample6"">abab
+</pre>
+</section>
+</div>
+
+<div class=""part"">
+<section>
+<h3>Sample Output 1<span class=""btn btn-default btn-sm btn-copy ml-1"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample7"" data-original-title=""Copied!"">Copy</span></h3><div class=""div-btn-copy""><span class=""btn-copy btn-pre"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample7"" data-original-title=""Copied!"">Copy</span></div><pre id=""pre-sample7"">16
+</pre>
+<p>If <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>T</mi></mrow><annotation encoding=""application/x-tex"">T</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.13889em;"">T</span></span></span></span></span></var> is <code>a</code> or <code>b</code>, the answer is <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>1</mn></mrow><annotation encoding=""application/x-tex"">1</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">1</span></span></span></span></span></var>.</p>
+<p>If <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>T</mi></mrow><annotation encoding=""application/x-tex"">T</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.13889em;"">T</span></span></span></span></span></var> is <code>ab</code> or <code>ba</code>, the answer is <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>2</mn></mrow><annotation encoding=""application/x-tex"">2</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">2</span></span></span></span></span></var>.</p>
+<p>If <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>T</mi></mrow><annotation encoding=""application/x-tex"">T</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.13889em;"">T</span></span></span></span></span></var> is <code>aba</code> or <code>bab</code>, applying the operation with <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding=""application/x-tex"">k=1</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.69444em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.03148em;"">k</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">1</span></span></span></span></span></var> once is optimal, and the answer is <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>2</mn></mrow><annotation encoding=""application/x-tex"">2</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">2</span></span></span></span></span></var>.</p>
+<p>If <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>T</mi></mrow><annotation encoding=""application/x-tex"">T</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.68333em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.13889em;"">T</span></span></span></span></span></var> is <code>abab</code>, applying the operation with <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding=""application/x-tex"">k=1</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.69444em; vertical-align: 0em;""></span><span class=""mord mathnormal"" style=""margin-right: 0.03148em;"">k</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">1</span></span></span></span></span></var> twice is optimal, and the answer is <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>2</mn></mrow><annotation encoding=""application/x-tex"">2</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">2</span></span></span></span></span></var>.</p>
+<p>Therefore, the whole answer is <var><span><span class=""katex""><span class=""katex-mathml""><math xmlns=""http://www.w3.org/1998/Math/MathML""><semantics><mrow><mn>1</mn><mo>×</mo><mn>4</mn><mo>+</mo><mn>2</mn><mo>×</mo><mn>3</mn><mo>+</mo><mn>2</mn><mo>×</mo><mn>2</mn><mo>+</mo><mn>2</mn><mo>×</mo><mn>1</mn><mo>=</mo><mn>16</mn></mrow><annotation encoding=""application/x-tex"">1\times 4 + 2\times 3 + 2\times 2 + 2\times 1 = 16</annotation></semantics></math></span><span class=""katex-html"" aria-hidden=""true""><span class=""base""><span class=""strut"" style=""height: 0.72777em; vertical-align: -0.08333em;""></span><span class=""mord"">1</span><span class=""mspace"" style=""margin-right: 0.222222em;""></span><span class=""mbin"">×</span><span class=""mspace"" style=""margin-right: 0.222222em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.72777em; vertical-align: -0.08333em;""></span><span class=""mord"">4</span><span class=""mspace"" style=""margin-right: 0.222222em;""></span><span class=""mbin"">+</span><span class=""mspace"" style=""margin-right: 0.222222em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.72777em; vertical-align: -0.08333em;""></span><span class=""mord"">2</span><span class=""mspace"" style=""margin-right: 0.222222em;""></span><span class=""mbin"">×</span><span class=""mspace"" style=""margin-right: 0.222222em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.72777em; vertical-align: -0.08333em;""></span><span class=""mord"">3</span><span class=""mspace"" style=""margin-right: 0.222222em;""></span><span class=""mbin"">+</span><span class=""mspace"" style=""margin-right: 0.222222em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.72777em; vertical-align: -0.08333em;""></span><span class=""mord"">2</span><span class=""mspace"" style=""margin-right: 0.222222em;""></span><span class=""mbin"">×</span><span class=""mspace"" style=""margin-right: 0.222222em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.72777em; vertical-align: -0.08333em;""></span><span class=""mord"">2</span><span class=""mspace"" style=""margin-right: 0.222222em;""></span><span class=""mbin"">+</span><span class=""mspace"" style=""margin-right: 0.222222em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.72777em; vertical-align: -0.08333em;""></span><span class=""mord"">2</span><span class=""mspace"" style=""margin-right: 0.222222em;""></span><span class=""mbin"">×</span><span class=""mspace"" style=""margin-right: 0.222222em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">1</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span><span class=""mrel"">=</span><span class=""mspace"" style=""margin-right: 0.277778em;""></span></span><span class=""base""><span class=""strut"" style=""height: 0.64444em; vertical-align: 0em;""></span><span class=""mord"">1</span><span class=""mord"">6</span></span></span></span></span></var>.</p>
+</section>
+</div>
+
+<hr>
+<div class=""part"">
+<section>
+<h3>Sample Input 2<span class=""btn btn-default btn-sm btn-copy ml-1"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample8"" data-original-title=""Copied!"">Copy</span></h3><div class=""div-btn-copy""><span class=""btn-copy btn-pre"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample8"" data-original-title=""Copied!"">Copy</span></div><pre id=""pre-sample8"">abacaba
+</pre>
+</section>
+</div>
+
+<div class=""part"">
+<section>
+<h3>Sample Output 2<span class=""btn btn-default btn-sm btn-copy ml-1"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample9"" data-original-title=""Copied!"">Copy</span></h3><div class=""div-btn-copy""><span class=""btn-copy btn-pre"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample9"" data-original-title=""Copied!"">Copy</span></div><pre id=""pre-sample9"">67
+</pre>
+</section>
+</div>
+
+<hr>
+<div class=""part"">
+<section>
+<h3>Sample Input 3<span class=""btn btn-default btn-sm btn-copy ml-1"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample10"" data-original-title=""Copied!"">Copy</span></h3><div class=""div-btn-copy""><span class=""btn-copy btn-pre"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample10"" data-original-title=""Copied!"">Copy</span></div><pre id=""pre-sample10"">tabatadebatabata
+</pre>
+</section>
+</div>
+
+<div class=""part"">
+<section>
+<h3>Sample Output 3<span class=""btn btn-default btn-sm btn-copy ml-1"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample11"" data-original-title=""Copied!"">Copy</span></h3><div class=""div-btn-copy""><span class=""btn-copy btn-pre"" tabindex=""0"" data-toggle=""tooltip"" data-trigger=""manual"" title="""" data-target=""pre-sample11"" data-original-title=""Copied!"">Copy</span></div><pre id=""pre-sample11"">739
+</pre></section>
+</div>
+",1,"Here is a simplified version of the problem statement and instructions: 
+
+## Problem Summary: 
+Given a string, find the minimum length of a new string formed by repeatedly reducing odd-length palindromic prefixes. Do this for all contiguous substrings and sum up the results. 
+
+## Steps:
+1. Take input string `S`. 
+2. Iterate through all contiguous substrings of `S`. 
+3. For each substring, find the minimum length it can be reduced to by repeatedly removing odd-length palindromic prefixes. 
+4. Sum up the lengths found in step 3. 
+5. Output the final sum. 
+
+## Examples: 
+### Example 1:
+**Input:**
+```
+abab
+```
+**Output:**
+```
+16
+```
+**Explanation:**
+- For `a`, the answer is `1`.
+- For `b`, the answer is `1`.
+- For `ab`, the answer is `2`.
+- For `ba`, the answer is `2`.
+- For `aba`, the answer is `2` (`aba` to `a`).
+- For `bab`, the answer is `2` (`bab` to `b`).
+- For `abab`, the answer is `2` (`abab` to `ab` to `a`).
+The sum of these lengths is `1 + 1 + 2 + 2 + 2 + 2 + 1 = 16`.
+
+### Example 2:
+**Input:**
+```
+abacaba
+```
+**Output:**
+```
+67
+```
+
+### Example 3:
+**Input:**
+```
+tabatadebatabata
+```
+**Output:**
+```
+739
+```
+
+The program's goal is to process a given string by breaking it down into substrings and performing specific operations to minimize their lengths. The final answer is the sum of the lengths of all these processed substrings."
